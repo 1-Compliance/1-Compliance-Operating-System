@@ -17,119 +17,119 @@ export const SENTINEL_VOICE_PROFILES: Record<SentinelId, SentinelVoiceProfile> =
     id: 'jax',
     name: 'Jax',
     roleBadge: 'Lead Sentinel',
-    // Pitch MUST stay close to 1.0 to preserve natural human vocal cord resonances
-    // without mechanical DSP distortion or metallic robot buzzing.
-    pitch: 1.0,
-    rate: 0.96,
+    pitch: 1.02,
+    rate: 1.02,
     volume: 1.0,
     preferredVoices: [
-      // Top-tier Neural & Natural Human Male Voices
+      'Microsoft Andrew Online (Natural)',
+      'Microsoft Brian Online (Natural)',
       'Microsoft Guy Online (Natural)',
       'Microsoft Ryan Online (Natural)',
       'Microsoft Christopher Online (Natural)',
-      'Microsoft Andrew Online (Natural)',
       'Microsoft Eric Online (Natural)',
+      'Google US English',
       'Google UK English Male',
-      'Google US English Male',
       'Daniel (Enhanced)',
       'Oliver (Enhanced)',
       'Evan (Enhanced)',
       'Nathan (Enhanced)',
-      'Daniel',
-      'Oliver',
-      'Arthur',
-      'George',
       'Microsoft Mark',
-      'Microsoft David',
       'Alex',
     ],
     gender: 'male',
-    personality: 'Inspiring, authoritative, confident leader',
+    personality: 'Warm, confident, articulate human leader',
   },
   it: {
     id: 'it',
     name: 'IT Sentinel',
     roleBadge: 'Infrastructure & Asset Guardian',
-    pitch: 1.02,
-    rate: 1.02,
+    pitch: 1.03,
+    rate: 1.03,
     volume: 1.0,
     preferredVoices: [
+      'Microsoft Brian Online (Natural)',
       'Microsoft Ryan Online (Natural)',
       'Microsoft Christopher Online (Natural)',
+      'Microsoft Andrew Online (Natural)',
       'Google UK English Male',
-      'Google US English Male',
+      'Google US English',
       'Daniel (Enhanced)',
       'Microsoft Mark',
       'Aaron',
       'Alex',
     ],
     gender: 'male',
-    personality: 'Sharp, rapid-cadence, tactical cybersecurity engineer',
+    personality: 'Crisp, engaging, modern cybersecurity specialist',
   },
   privacy: {
     id: 'privacy',
     name: 'Privacy Sentinel',
     roleBadge: 'Data Protection & Web Defense',
-    pitch: 1.0,
-    rate: 0.96,
+    pitch: 1.03,
+    rate: 1.01,
     volume: 1.0,
     preferredVoices: [
-      'Microsoft Jenny Online (Natural)',
+      'Microsoft Ava Online (Natural)',
+      'Microsoft Emma Online (Natural)',
       'Microsoft Aria Online (Natural)',
+      'Microsoft Jenny Online (Natural)',
       'Microsoft Sonia Online (Natural)',
       'Google UK English Female',
+      'Google US English',
       'Stephanie (Enhanced)',
       'Samantha (Enhanced)',
       'Victoria',
-      'Google UK English Male',
-      'Daniel (Enhanced)',
     ],
     gender: 'female',
-    personality: 'Articulate, composed, regulatory data protection specialist',
+    personality: 'Warm, articulate, assured regulatory specialist',
   },
   risky: {
     id: 'risky',
     name: 'Risky Sentinel',
     roleBadge: 'Enterprise Threat & Forensics',
-    pitch: 0.98,
-    rate: 0.94,
+    pitch: 1.0,
+    rate: 1.0,
     volume: 1.0,
     preferredVoices: [
+      'Microsoft Christopher Online (Natural)',
       'Microsoft Guy Online (Natural)',
       'Microsoft Andrew Online (Natural)',
+      'Microsoft Eric Online (Natural)',
       'Google UK English Male',
       'Oliver (Enhanced)',
       'Daniel (Enhanced)',
       'George',
       'Arthur',
-      'Microsoft George',
     ],
     gender: 'male',
-    personality: 'Deep, tactical threat analyst and risk strategist',
+    personality: 'Calm, grounded, authoritative risk advisor',
   },
   hr: {
     id: 'hr',
     name: 'HR Sentinel',
     roleBadge: 'People Governance & Culture',
-    pitch: 1.02,
-    rate: 0.98,
+    pitch: 1.04,
+    rate: 1.01,
     volume: 1.0,
     preferredVoices: [
       'Microsoft Jenny Online (Natural)',
+      'Microsoft Emma Online (Natural)',
+      'Microsoft Ava Online (Natural)',
       'Microsoft Aria Online (Natural)',
       'Samantha (Enhanced)',
       'Google US English',
       'Google UK English Female',
       'Jenny',
       'Samantha',
-      'Victoria',
     ],
     gender: 'female',
-    personality: 'Warm, encouraging, approachable People & Culture champion',
+    personality: 'Warm, friendly, encouraging People & Culture specialist',
   },
 };
 
-let activeUtterance: SpeechSynthesisUtterance | null = null;
+// Persistent queue prevents browser garbage-collection from cutting off speech mid-sentence
+let activeUtteranceQueue: SpeechSynthesisUtterance[] = [];
+let isCancelled = false;
 let voiceEnabled = true;
 let customSelectedVoices: Partial<Record<SentinelId, string>> = {};
 
@@ -194,52 +194,63 @@ export function getVoiceEnabled(): boolean {
 }
 
 export function stopSpeaking() {
+  isCancelled = true;
+  activeUtteranceQueue = [];
   if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     window.speechSynthesis.cancel();
-    activeUtterance = null;
     notifySpeaking(false, null);
   }
 }
 
 // Voice classification regexes
 const NATURAL_NEURAL_REGEX = /natural|neural|online|enhanced|premium|studio|wavenet/i;
-const FEMALE_VOICE_REGEX = /female|woman|samantha|zira|victoria|karen|stephanie|hazel|susan|catherine|jenny|aria|ana|helena|sophia|monica|amelia|fiona|moira|veena|tessa/i;
-const MALE_VOICE_REGEX = /male|man|alex|david|guy|daniel|george|oliver|mark|aaron|arthur|tom|rishi|christopher|ryan|eric|andrew|evan|nathan/i;
+const FEMALE_VOICE_REGEX = /female|woman|samantha|zira|victoria|karen|stephanie|hazel|susan|catherine|jenny|aria|ava|emma|ana|helena|sophia|monica|amelia|fiona|moira|veena|tessa/i;
+const MALE_VOICE_REGEX = /male|man|alex|david|guy|daniel|george|oliver|mark|aaron|arthur|tom|rishi|christopher|ryan|eric|andrew|brian|evan|nathan/i;
 
 // Natural human pronunciation mapper for technical and compliance terminology
 export function humanizeComplianceSpeech(rawText: string): string {
-  let text = rawText
+  const text = rawText
     .replace(/[*_#`~]/g, '')
-    .replace(/https?:\/\/\S+/g, 'link')
+    .replace(/https?:\/\/\S+/g, 'one compliance dot com')
+    .replace(/www\.1-compliance\.com/gi, 'one compliance dot com')
+    .replace(/1-compliance\.com/gi, 'one compliance dot com')
+    .replace(/[$](\d+(?:,\d+)?)\/mo/gi, '$1 dollars a month')
     .replace(/[$](\d+(?:,\d+)?)/g, '$1 dollars')
+    .replace(/\b24\/7\/365\b/g, 'twenty-four seven, three sixty-five')
+    .replace(/\b24\/7\b/g, 'twenty-four seven')
+    .replace(/\b5[×x]5\b/gi, 'five by five')
+    .replace(/\b28\+\s*years\b/gi, 'over twenty-eight years')
     // Compliance abbreviations humanization
     .replace(/\bSOC 2\b/gi, 'Sock two')
-    .replace(/\bPCI DSS\b/gi, 'P-C-I D-S-S')
+    .replace(/\bPCI[- ]DSS\b/gi, 'P C I, D S S')
     .replace(/\bHIPAA\b/gi, 'Hip-uh')
-    .replace(/\bFinCEN\b/gi, 'Fin-cen')
-    .replace(/\bBOI\b/g, 'B-O-I')
-    .replace(/\bGDPR\b/gi, 'G-D-P-R')
-    .replace(/\bCCPA\b/gi, 'C-C-P-A')
-    .replace(/\bCPRA\b/gi, 'C-P-R-A')
-    .replace(/\bNIST CSF\b/gi, 'Nist C-S-F')
+    .replace(/\bFinCEN\b/gi, 'Fin-sen')
+    .replace(/\bBOI\b/g, 'B O I')
+    .replace(/\bGDPR\b/gi, 'G D P R')
+    .replace(/\bCCPA\b/gi, 'C C P A')
+    .replace(/\bCPRA\b/gi, 'C P R A')
+    .replace(/\bWCAG\b/gi, 'W C A G')
+    .replace(/\bSSL\/TLS\b/gi, 'S S L and T L S')
+    .replace(/\bNIST CSF\b/gi, 'Nist C S F')
     .replace(/\bNIST\b/gi, 'Nist')
-    .replace(/\bISO 27001\b/gi, 'I-S-O twenty-seven-thousand-one')
-    .replace(/\b1-Compliance OS™?\b/gi, 'One Compliance O-S')
+    .replace(/\bISO 27001\b/gi, 'I S O twenty-seven thousand one')
+    .replace(/\b1-Compliance OS™?\b/gi, 'One Compliance O S')
     .replace(/\b1-Compliance\b/gi, 'One Compliance')
-    .replace(/\bOS\b/g, 'O-S')
-    .replace(/\bCPA\b/g, 'C-P-A')
-    .replace(/\bLLC\b/g, 'L-L-C')
-    .replace(/\bAI\b/g, 'A-I')
-    .replace(/\bTLS\b/g, 'T-L-S')
-    .replace(/\bCSP\b/g, 'C-S-P')
+    .replace(/\bOS\b/g, 'O S')
+    .replace(/\bMSL\b/g, 'M S L')
+    .replace(/\bCPA\b/g, 'C P A')
+    .replace(/\bLLC\b/g, 'L L C')
+    .replace(/\bAI\b/g, 'A I')
+    .replace(/\bTLS\b/g, 'T L S')
+    .replace(/\bCSP\b/g, 'C S P')
     .replace(/\bTPCRM\b/g, 'Third Party Vendor Risk')
-    // Punctuation pacing: Ensure natural breathing cadence
+    // Punctuation pacing: convert em-dashes and slashes so TTS never skips clauses
+    .replace(/\s*[—–]\s*/g, ', ')
     .replace(/\.\s+/g, '. ')
-    .replace(/;\s+/g, ', ')
-    .replace(/—/g, ', ')
+    .replace(/;\s+/g, '. ')
     .trim();
 
-  return text.slice(0, 480);
+  return text;
 }
 
 // Find the highest fidelity natural human SpeechSynthesisVoice
@@ -364,41 +375,70 @@ export function speakSentinel(
   }
 
   stopSpeaking();
+  isCancelled = false;
 
   const profile = SENTINEL_VOICE_PROFILES[sentinelId] || SENTINEL_VOICE_PROFILES.jax;
   playActivationChime(sentinelId);
 
   const cleanText = humanizeComplianceSpeech(rawText);
-  const utterance = new SpeechSynthesisUtterance(cleanText);
+  // Split into natural conversational sentences so speech synthesis never times out or sounds flat
+  const sentences = cleanText
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
 
-  // Natural human acoustic settings
-  utterance.pitch = profile.pitch;
-  utterance.rate = profile.rate;
-  utterance.volume = profile.volume;
-
-  const matchedVoice = resolveSentinelVoice(sentinelId);
-  if (matchedVoice) {
-    utterance.voice = matchedVoice;
-    utterance.lang = matchedVoice.lang;
+  if (sentences.length === 0) {
+    if (onEnd) onEnd();
+    return;
   }
 
-  utterance.onstart = () => {
-    notifySpeaking(true, sentinelId, cleanText.slice(0, 80));
-    if (onStart) onStart();
-  };
+  const matchedVoice = resolveSentinelVoice(sentinelId);
 
-  utterance.onend = () => {
-    activeUtterance = null;
-    notifySpeaking(false, null);
-    if (onEnd) onEnd();
-  };
+  activeUtteranceQueue = sentences.map((sentence, idx) => {
+    const u = new SpeechSynthesisUtterance(sentence);
+    if (matchedVoice) {
+      u.voice = matchedVoice;
+      u.lang = matchedVoice.lang;
+    }
+    // Subtle natural conversational inflection per sentence (prevents monotone reading)
+    const isQuestion = sentence.endsWith('?');
+    const isOpening = idx === 0;
+    const isClosing = idx === sentences.length - 1 && sentences.length > 1;
+    u.pitch = isQuestion
+      ? profile.pitch + 0.05
+      : isOpening
+      ? profile.pitch + 0.03
+      : isClosing
+      ? profile.pitch + 0.02
+      : profile.pitch;
+    u.rate = isClosing ? Math.max(0.96, profile.rate - 0.02) : profile.rate;
+    u.volume = profile.volume;
 
-  utterance.onerror = () => {
-    activeUtterance = null;
-    notifySpeaking(false, null);
-    if (onEnd) onEnd();
-  };
+    u.onstart = () => {
+      if (isCancelled) return;
+      notifySpeaking(true, sentinelId, sentence);
+      if (idx === 0 && onStart) onStart();
+    };
 
-  activeUtterance = utterance;
-  window.speechSynthesis.speak(utterance);
+    u.onend = () => {
+      if (isCancelled) return;
+      if (idx === sentences.length - 1) {
+        activeUtteranceQueue = [];
+        notifySpeaking(false, null);
+        if (onEnd) onEnd();
+      }
+    };
+
+    u.onerror = () => {
+      if (idx === sentences.length - 1) {
+        activeUtteranceQueue = [];
+        notifySpeaking(false, null);
+        if (onEnd) onEnd();
+      }
+    };
+
+    return u;
+  });
+
+  activeUtteranceQueue.forEach((u) => window.speechSynthesis.speak(u));
 }

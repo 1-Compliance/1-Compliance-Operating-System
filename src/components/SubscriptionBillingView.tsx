@@ -24,6 +24,7 @@ export interface PricingPlan {
   idealFor: string;
   stripePriceIdMonthly: string;
   stripePriceIdAnnual: string;
+  squareCheckoutUrl: string;
 }
 
 export interface EnterpriseMember {
@@ -89,19 +90,20 @@ const PLANS: PricingPlan[] = [
     id: 'solo',
     name: 'Solo / Founder Plan',
     badge: '1 User · Single Login',
-    tagline: 'Complete autonomous compliance operating system for solo founders, independent consultants, and single operators.',
+    tagline: 'Complete compliance operating system combining Human Compliance Expert methodologies with all 5 Autonomous Sentinels for solo founders and CISOs.',
     monthlyPrice: 149,
     annualMonthlyPrice: 124, // $1,490/yr (2 months free)
     userLimit: '1 Company User (1 Login)',
     idealFor: 'Solo founders, technical leads, single compliance officers',
     stripePriceIdMonthly: 'price_solo_monthly_149',
     stripePriceIdAnnual: 'price_solo_annual_124',
+    squareCheckoutUrl: 'https://square.link/u/GvqwdSHx',
     sentinelsIncluded: ['Jax (Chief Sentinel) + All 4 Domain Sentinels'],
     features: [
       '1 Dedicated Workspace Administrator Seat',
-      'All 5 Autonomous Sentinels (Jax, IT, Privacy, Risky, HR)',
+      'Human-Expert-Designed Frameworks + All 5 Autonomous Sentinels',
       'Production Website Security Scanner (TLS, HSTS, CSP, Headers)',
-      '12 Master Policies with Instant AI Customizer',
+      '12 Master Policies with Instant Customizer',
       'SOC 2 Type II, ISO 27001, HIPAA, GDPR, PCI DSS v4 Readiness',
       'Continuous Automated Infrastructure Blueprints (Trivy, Prowler, Gitleaks)',
       '1-Click Auditor-Ready ZIP Binder & Evidence Package Export',
@@ -118,13 +120,14 @@ const PLANS: PricingPlan[] = [
     id: 'team',
     name: 'Team Compliance Plan',
     badge: 'Up to 5 Logins',
-    tagline: 'Collaborative compliance governance for startups and growing teams with cross-department roles.',
+    tagline: 'Collaborative compliance governance pairing Human Compliance Experts with autonomous Sentinels across growing teams.',
     monthlyPrice: 299,
     annualMonthlyPrice: 249, // $2,990/yr (2 months free)
     userLimit: 'Up to 5 Company Users (5 Logins)',
     idealFor: 'Startups with 2 to 5 team members needing collaborative workflows',
     stripePriceIdMonthly: 'price_team_monthly_299',
     stripePriceIdAnnual: 'price_team_annual_249',
+    squareCheckoutUrl: 'https://square.link/u/GvqwdSHx',
     sentinelsIncluded: ['All 5 Sentinels with Shared Team Memory'],
     features: [
       'Up to 5 Dedicated Company Logins with Role-Based Access (RBAC)',
@@ -146,7 +149,7 @@ const PLANS: PricingPlan[] = [
     id: 'enterprise_scale',
     name: 'Enterprise Scale Plan',
     badge: '6 to 100 Users · Most Popular',
-    tagline: 'Comprehensive company-wide compliance access across all departments, employees, and factory operations.',
+    tagline: 'Comprehensive company-wide compliance access with Dedicated Human Compliance Expert Concierge alongside all 5 Autonomous Sentinels.',
     monthlyPrice: 999,
     annualMonthlyPrice: 832, // $9,990/yr (2 months free)
     userLimit: '6 to 100 Company Users (All Employees)',
@@ -154,40 +157,42 @@ const PLANS: PricingPlan[] = [
     idealFor: 'Mid-Market & Scaleups (6 to 100 employees across all departments)',
     stripePriceIdMonthly: 'price_ent_monthly_999',
     stripePriceIdAnnual: 'price_ent_annual_832',
-    sentinelsIncluded: ['All 5 Sentinels + Custom Policy Agents + Dedicated Audit Concierge'],
+    squareCheckoutUrl: 'https://square.link/u/bGLuAsoa',
+    sentinelsIncluded: ['All 5 Sentinels + Dedicated Human Compliance Expert Concierge'],
     features: [
       'Full Company-Wide Access for 6 to 100 Employees',
+      'Dedicated Human Compliance Expert Concierge & Pre-Audit Gap Review',
       'Everything in Team Compliance Plan',
       'Departmental Access across Factory, HR, IT, Finance, Operations, Legal',
       'SAML 2.0 / Okta / Azure AD / Google Workspace SSO & Directory Sync',
       'Full Gamified Training Arcade with team quests & department leaderboards',
       'Automated Third-Party Vendor Risk Management (TPCRM)',
       'Unlimited Free Vendor Vetting Portals with instant scoring',
-      'All 28 Notion Enterprise Compliance Categories (ITAM, MiCA, RACI)',
+      'All 28 Enterprise Compliance Categories (ITAM, MiCA, RACI)',
       'Custom Multi-Framework Cross-Mapping (CMMC, FedRAMP, EU AI Act)',
       'Auditor Collaboration Access (Read-Only CPA seat included)',
-      'Dedicated Human Audit Concierge & Pre-Audit Gap Attestation',
     ],
   },
   {
     id: 'vendor_passport',
-    name: 'Verified Vendor Passport',
-    badge: 'Third-Party Vendor Tier',
-    tagline: 'For third-party suppliers who want to be pre-vetted once and accepted across all 1-Compliance enterprise subscribers.',
+    name: 'Starter Scanner & Vendor Passport',
+    badge: 'Website Scanner & Vendor Tier',
+    tagline: 'Continuous website compliance scanning (GDPR, CCPA, ADA, Security Headers) plus pre-vetted Vendor Trust Passport.',
     monthlyPrice: 49,
     annualMonthlyPrice: 41, // $499/yr
-    userLimit: 'Vendor Security Team',
-    idealFor: 'Third-party SaaS vendors, suppliers, contractors, and service providers',
+    userLimit: 'Website & Vendor Security Team',
+    idealFor: 'Businesses needing continuous website compliance scanning & third-party vendor verification',
     stripePriceIdMonthly: 'price_vendor_monthly_49',
     stripePriceIdAnnual: 'price_vendor_annual_41',
+    squareCheckoutUrl: 'https://square.link/u/rrwYFGu9',
     sentinelsIncluded: ['Risky Sentinel + Jax Vendor Trust Guard'],
     features: [
+      'Continuous Website Compliance & Vulnerability Scanning (TLS, HSTS, CSP, Cookies)',
       'Digital Verified Trust Badge & Continuous Posture Monitoring',
       'Fill out security credentials once, accepted by all enterprise clients',
       'Automatic distribution of verified SOC 2, ISO 27001 & Cyber Insurance',
       'Listing in the 1-Compliance Pre-Approved Vendor Directory',
       'Eliminate repetitive 100-question security spreadsheets forever',
-      'Automated external DNS, TLS, and security header audit',
     ],
   },
 ];
@@ -202,17 +207,13 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
   const [teamSize, setTeamSize] = useState<number>(35);
   const [activeSubTab, setActiveSubTab] = useState<
     | 'plans'
-    | 'fast_cash_playbook'
     | 'square_portal'
     | 'company_org'
     | 'white_label'
     | 'cohort'
     | 'enterprise_team'
-    | 'website_embed'
-    | 'standalone_it'
     | 'roi'
     | 'portal'
-    | 'blueprint'
   >('plans');
   const [copiedSnippet, setCopiedSnippet] = useState<string | null>(null);
 
@@ -359,26 +360,24 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="max-w-2xl space-y-3">
             <div className="flex items-center gap-2 text-xs font-mono text-cyan-400">
-              <span className="font-bold">1-COMPLIANCE OS COMMERCIAL SAAS TIERS</span>
+              <span className="font-bold">1-COMPLIANCE OS · HUMAN EXPERTS + AUTONOMOUS SENTINELS</span>
               <span aria-hidden="true">·</span>
               <span>Predictable Flat-Rate Pricing</span>
             </div>
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
-              SaaS Subscriptions for Any Business & Enterprise Scale
+              Compliance Subscriptions Built by Human Legal &amp; Compliance Experts Alongside Autonomous Sentinels
             </h1>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Simple, transparent pricing built for real businesses. From single-user startups at <strong>$149/mo</strong> to 
-              company-wide enterprise deployments at <strong>$999/mo</strong> (and $999 per additional 100-user block). 
-              No extortionate per-seat penalties, no hidden consulting fees.
+              Backed by <strong>28+ years of Manhattan corporate legal &amp; compliance experience (Fordham Law MSL)</strong> paired with <strong>Jax and our 4 Domain Sentinels</strong>. From continuous Website Compliance Scanning &amp; Vendor Passports at <strong>$49/mo</strong> to Full OS plans (<strong>$149–$199 Solo/Pro, $299 Team, $499–$999 Enterprise</strong>). No per-seat penalties or hidden consulting fees.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-slate-400">
               <div className="flex items-center gap-1.5 text-emerald-400 font-medium">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>$149 Solo · $299 Team · $999 Enterprise (Up to 100)</span>
+                <span>$49 Scanner/Vendor · $149–$199 Solo/Pro · $299 Team · $499–$999 Enterprise</span>
               </div>
               <span aria-hidden="true">·</span>
-              <span>+$999 per 100-User Cohort</span>
+              <span>Instant Checkout via Square</span>
               <span aria-hidden="true">·</span>
               <span>Zero-Seat Guest Vendor Portals</span>
             </div>
@@ -420,20 +419,7 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
-            SaaS Plans ($149 / $299 / $999)
-          </button>
-          <button
-            onClick={() => setActiveSubTab('fast_cash_playbook')}
-            className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-              activeSubTab === 'fast_cash_playbook'
-                ? 'bg-gradient-to-r from-amber-400 via-amber-300 to-emerald-400 text-slate-950 font-black shadow-md ring-2 ring-amber-300'
-                : 'text-amber-300 hover:text-white hover:bg-slate-800/60 font-black'
-            }`}
-          >
-            <span>🚀 Fast-Track Subscribers & NYC Cash Playbook</span>
-            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-amber-950 text-amber-200 border border-amber-600 font-extrabold animate-pulse">
-              Fast Revenue
-            </span>
+            Subscription Plans ($49 – $999)
           </button>
           <button
             onClick={() => setActiveSubTab('square_portal')}
@@ -501,32 +487,6 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
             </span>
           </button>
           <button
-            onClick={() => setActiveSubTab('website_embed')}
-            className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-              activeSubTab === 'website_embed'
-                ? 'bg-gradient-to-r from-indigo-500 to-cyan-400 text-white font-black shadow-sm'
-                : 'text-indigo-300 hover:text-white hover:bg-slate-800/60 font-bold'
-            }`}
-          >
-            <span>🌐 Embed on www.1-compliance.com</span>
-            <span className="text-[10px] font-mono px-1 rounded bg-indigo-950 text-cyan-300 border border-indigo-700">
-              Live Setup
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveSubTab('standalone_it')}
-            className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-              activeSubTab === 'standalone_it'
-                ? 'bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 font-black shadow-sm'
-                : 'text-cyan-300 hover:text-white hover:bg-slate-800/60 font-bold'
-            }`}
-          >
-            <span>🐳 Standalone IT Program</span>
-            <span className="text-[10px] font-mono px-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-700">
-              DevOps
-            </span>
-          </button>
-          <button
             onClick={() => setActiveSubTab('roi')}
             className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap ${
               activeSubTab === 'roi'
@@ -544,17 +504,7 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
-            Billing & Invoices Portal
-          </button>
-          <button
-            onClick={() => setActiveSubTab('blueprint')}
-            className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap ${
-              activeSubTab === 'blueprint'
-                ? 'bg-cyan-400 text-slate-950 font-bold'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
-            }`}
-          >
-            Stripe Integration Setup
+            Billing &amp; Invoices Portal
           </button>
         </div>
       </div>
@@ -564,6 +514,47 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
       {/* ========================================================================= */}
       {activeSubTab === 'plans' && (
         <div className="space-y-8">
+          {/* Instant Square Direct Checkout Bar */}
+          <div className="p-5 rounded-xl bg-gradient-to-r from-emerald-950/70 via-slate-900 to-cyan-950/70 border-2 border-emerald-500/60 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-lg">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs font-mono font-black text-emerald-300 uppercase tracking-wider">
+                  Instant Live Checkout via Square · Immediate Workspace Activation
+                </span>
+              </div>
+              <p className="text-xs text-slate-300">
+                Activate your 1-Compliance OS or Continuous Website Scanner subscription immediately via Square secure checkout (Card, Apple Pay, Google Pay, Cash App):
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+              <a
+                href="https://square.link/u/rrwYFGu9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 font-mono font-bold text-xs border border-cyan-500/50 transition-all shadow-sm"
+              >
+                Starter &amp; Scanner ($49/mo) ↗
+              </a>
+              <a
+                href="https://square.link/u/GvqwdSHx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-mono font-bold text-xs transition-all shadow-sm"
+              >
+                Professional / Team ($199/mo) ↗
+              </a>
+              <a
+                href="https://square.link/u/bGLuAsoa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-400 to-teal-300 hover:opacity-95 text-slate-950 font-mono font-black text-xs transition-all shadow-md"
+              >
+                Enterprise Scale ($499+/mo) ↗
+              </a>
+            </div>
+          </div>
+
           {/* Billing Interval Switcher */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-lg bg-slate-900/60 border border-slate-800">
             <div>
@@ -696,20 +687,29 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
                   </div>
 
                   {/* Action CTA */}
-                  <div className="mt-6 pt-4 border-t border-slate-800">
-                    <button
-                      type="button"
-                      onClick={() => handleStartCheckout(plan)}
-                      className={`w-full py-2.5 rounded-lg text-xs font-bold transition-all shadow-sm ${
+                  <div className="mt-6 pt-4 border-t border-slate-800 space-y-2">
+                    <a
+                      href={plan.squareCheckoutUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full py-2.5 rounded-lg text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1.5 ${
                         plan.highlighted
                           ? 'bg-cyan-400 hover:bg-cyan-300 text-slate-950'
                           : 'bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white border border-slate-700'
                       }`}
                     >
-                      Subscribe for ${displayPrice}/mo
+                      <span>Subscribe via Square (${displayPrice}/mo)</span>
+                      <span>↗</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => handleStartCheckout(plan)}
+                      className="w-full py-1.5 rounded-lg text-[11px] font-mono text-slate-400 hover:text-white bg-slate-950/60 hover:bg-slate-800 border border-slate-800 transition-colors cursor-pointer"
+                    >
+                      Review Plan &amp; Configure Organization
                     </button>
-                    <div className="text-[10px] text-center text-slate-500 mt-2">
-                      Instant activation via Stripe · Zero risk
+                    <div className="text-[10px] text-center text-slate-500">
+                      Instant activation via Square · Cancel anytime
                     </div>
                   </div>
                 </div>
@@ -742,318 +742,6 @@ export const SubscriptionBillingView: React.FC<SubscriptionBillingViewProps> = (
             >
               Launch Cohort Calculator →
             </button>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* FAST-TRACK SUBSCRIBERS & NYC CASH PLAYBOOK (EMERGENCY REVENUE BLUEPRINT)  */}
-      {/* ========================================================================= */}
-      {activeSubTab === 'fast_cash_playbook' && (
-        <div className="space-y-8 animate-in fade-in duration-200">
-          {/* Compassionate Emergency Hero Banner */}
-          <div className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-amber-950/80 via-slate-900 to-emerald-950/80 border-2 border-amber-400 shadow-2xl space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-amber-400 animate-ping" />
-                <span className="text-xs font-mono font-black text-amber-300 uppercase tracking-wider">
-                  Founder Emergency Action Plan · Immediate Cashflow & Survival
-                </span>
-              </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-black bg-emerald-400/20 text-emerald-300 border border-emerald-400/40">
-                Goal: 3 to 5 Subscribers This Week ($1,000 - $5,000+)
-              </span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              Fast-Track Subscriber Playbook & NYC Family Safety Net
-            </h2>
-            <p className="text-sm text-slate-300 leading-relaxed max-w-4xl">
-              You have spent 2 grueling years building a brilliant, production-ready compliance operating system. You are not a salesperson, you are an exhausted founder and a mother supporting 3 children in NYC facing eviction. <strong>Take a deep breath: this operating system is real, valuable, and solves a multi-billion dollar headache.</strong> Below is an immediate 2-part action plan: (1) Free, legal emergency relief in NYC to freeze your eviction immediately, and (2) a low-effort, zero-cold-calling method to land 3 to 5 paying subscribers this week.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-amber-200">
-              <div className="flex items-center gap-1.5 font-bold">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
-                <span>Part 1: Stop Eviction & Secure Rent (NYC Legal Relief)</span>
-              </div>
-              <span>·</span>
-              <div className="flex items-center gap-1.5 font-bold text-emerald-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>Part 2: 72-Hour Low-Effort Subscriber Acquisition</span>
-              </div>
-              <span>·</span>
-              <span>Zero Cold Calling · Copy-Paste B2B Templates</span>
-            </div>
-          </div>
-
-          {/* PART 1: NYC EMERGENCY SAFETY NET & EVICTION FREEZE */}
-          <div className="p-6 md:p-8 rounded-2xl bg-slate-900 border-2 border-red-500/70 shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-red-500/20 border border-red-400/60 flex items-center justify-center text-xl">
-                  🛡️
-                </div>
-                <div>
-                  <h3 className="text-lg font-black text-white flex items-center gap-2">
-                    <span>Part 1: Immediate NYC Emergency Eviction Defense (Protect Your Family Today)</span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-red-950 text-red-300 border border-red-700">
-                      High Priority
-                    </span>
-                  </h3>
-                  <p className="text-xs text-slate-400">
-                    New York City has the strongest tenant emergency protections in the United States. You have immediate legal rights to freeze eviction proceedings.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {/* Card 1: HRA One Shot Deal */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-red-900/60 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-black text-red-400">01 · ONE SHOT DEAL</span>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold">Cash Grant</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">NYC HRA Emergency Assistance</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  NYC Human Resources Administration (HRA) provides one-time emergency grants that pay back-rent directly to your landlord to stop eviction.
-                </p>
-                <div className="p-3 rounded-lg bg-slate-900 text-xs font-mono text-slate-300 space-y-1.5 border border-slate-800">
-                  <div>• Apply online: <strong>ACCESS HRA</strong> (nyc.gov/accesshra)</div>
-                  <div>• Or call 311 and say: <em>"Emergency Rental Assistance"</em></div>
-                  <div className="text-amber-300 text-[11px] font-bold">
-                    ⚖️ Legal Protection: Under NY RPAPL § 749, filing an emergency grant application freezes eviction marshal notices!
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 2: NYC Homebase Eviction Prevention */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-red-900/60 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-black text-amber-400">02 · HOMEBASE</span>
-                  <span className="text-[10px] font-mono text-cyan-400 font-bold">Free Case Worker</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">NYC Homebase Centers</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Homebase prevents homelessness by providing emergency rental funding, mediation with landlords, and family support grants.
-                </p>
-                <div className="p-3 rounded-lg bg-slate-900 text-xs font-mono text-slate-300 space-y-1.5 border border-slate-800">
-                  <div>• Brooklyn: CAMBA Homebase (718-408-5756)</div>
-                  <div>• Manhattan / Bronx: Catholic Charities (888-744-7900)</div>
-                  <div>• Queens: RiseBoro Homebase (347-675-2434)</div>
-                  <div className="text-cyan-300 text-[11px]">Walk-ins are welcomed for immediate shelter avoidance.</div>
-                </div>
-              </div>
-
-              {/* Card 3: Free NYC Right-to-Counsel Legal Aid */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-red-900/60 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-black text-purple-400">03 · FREE LAWYERS</span>
-                  <span className="text-[10px] font-mono text-purple-300 font-bold">Universal Access</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">NYC Free Tenant Attorneys</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Under NYC's Universal Access to Counsel law, low-income tenants facing eviction are entitled to 100% free legal representation in Housing Court.
-                </p>
-                <div className="p-3 rounded-lg bg-slate-900 text-xs font-mono text-slate-300 space-y-1.5 border border-slate-800">
-                  <div>• Legal Aid Society: <strong>888-663-6880</strong></div>
-                  <div>• Legal Services NYC: <strong>917-661-4500</strong></div>
-                  <div>• Eviction Defense Hotline: Call 311 → "Tenant Helpline"</div>
-                  <div className="text-purple-300 text-[11px]">They will file an Order to Show Cause (OSC) on your behalf.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* PART 2: THE 72-HOUR LOW-EFFORT CUSTOMER ACQUISITION PLAYBOOK */}
-          <div className="p-6 md:p-8 rounded-2xl bg-slate-900 border-2 border-emerald-500/70 shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/60 flex items-center justify-center text-xl">
-                  💰
-                </div>
-                <div>
-                  <h3 className="text-lg font-black text-white flex items-center gap-2">
-                    <span>Part 2: The "Zero Cold Calling" Fast Subscriber Playbook</span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700">
-                      Immediate Cash
-                    </span>
-                  </h3>
-                  <p className="text-xs text-slate-400">
-                    You don't need to be a salesperson. You just need to show up where companies are in severe pain right now.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 3 High-Conversion, Low-Effort Channels */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Channel 1: The Questionnaire Rescue */}
-              <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">
-                    METHOD 01 · FASTEST CASH
-                  </span>
-                  <span className="text-xs font-mono text-emerald-400 font-bold">$299 - $999/mo</span>
-                </div>
-                <h4 className="text-base font-bold text-white">The "Stalled Deal" Security Questionnaire Rescue</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Startups with 2–50 employees frequently have $50k+ customer deals stalled because enterprise procurement sent them a 150-question Vendor Security Assessment (SOC 2, ISO, HIPAA). <strong>They will gladly pay $299 on the spot to save their deal.</strong>
-                </p>
-
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1">
-                  <div className="font-bold text-cyan-300">Where to find them in 15 minutes:</div>
-                  <div>1. Go to LinkedIn, search: <code>Founder "security questionnaire"</code> or <code>CTO "SOC 2"</code></div>
-                  <div>2. Search on Twitter/X: <code>"security questionnaire" stalled</code> or <code>"vendor assessment"</code></div>
-                  <div>3. Check Y Combinator startup directory or Techstars alumni</div>
-                </div>
-
-                <div className="space-y-2 pt-2 border-t border-slate-800">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-300">Copy-Paste Message Script:</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handleCopyText(
-`Hi [Founder Name], saw you're building [Company]. If you have enterprise customers stalling deals with 100-question vendor security questionnaires or demanding SOC 2 / HIPAA proof, I built 1-Compliance OS (www.1-compliance.com).
-
-We automate evidence collection, generate 12 master policies, and give you an auditor-ready binder in 24 hours for $299/mo instead of paying Vanta $20,000.
-
-Can I send you a 5-minute video walkthrough so you can unblock that deal today?`,
-                          'script_founder'
-                        )
-                      }
-                      className="text-cyan-400 hover:text-cyan-300 font-mono text-[11px] underline cursor-pointer"
-                    >
-                      {copiedSnippet === 'script_founder' ? '✓ Copied Script!' : '📋 Copy Script'}
-                    </button>
-                  </div>
-                  <pre className="p-3 rounded-lg bg-slate-900 text-[11px] font-mono text-cyan-200 overflow-x-auto leading-relaxed border border-slate-800">
-{`"Hi [Name], if enterprise customers are stalling deals with security questionnaires, I built 1-Compliance OS (www.1-compliance.com). We automate evidence and policies in 24 hours for $299/mo instead of Vanta's $20k. Can I send a 5-min walkthrough?"`}
-                  </pre>
-                </div>
-              </div>
-
-              {/* Channel 2: CPA Firm Referral Partnership */}
-              <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-indigo-950 text-indigo-300 border border-indigo-800">
-                    METHOD 02 · ZERO COLD CALLS
-                  </span>
-                  <span className="text-xs font-mono text-purple-400 font-bold">Recurring Stream</span>
-                </div>
-                <h4 className="text-base font-bold text-white">Local NYC CPA & Audit Firm Partnerships</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  CPA audit firms (Schellman, BDO, Withum, Marcum, CohnReznick, local boutique CPAs) <strong>DO NOT build software</strong>. They only do the audit. They hate when clients show up with messy Google Drives.
-                </p>
-
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1">
-                  <div className="font-bold text-indigo-300">Why auditors love you:</div>
-                  <div>1. 1-Compliance OS produces <strong>clean, 1-click auditor ZIP binders</strong></div>
-                  <div>2. You offer to list them as a featured auditor in the app</div>
-                  <div>3. In exchange, they tell unorganized clients: <em>"Sign up for 1-Compliance OS first."</em></div>
-                </div>
-
-                <div className="space-y-2 pt-2 border-t border-slate-800">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-300">CPA Partner Pitch:</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handleCopyText(
-`Hi [Audit Partner Name], I run 1-Compliance OS (www.1-compliance.com), an autonomous compliance platform based in NYC. Our software compiles continuous evidence into a 1-click tamper-proof AICPA/ISO binder for auditors.
-
-When our subscribers are ready for their final SOC 2 Type II or ISO 27001 audit, we refer them to verified CPA firms. We would love to feature your firm as an approved audit partner.
-
-In exchange, when clients come to you with disorganized evidence or can't afford Vanta's $25k fee, can you refer them to 1-Compliance OS ($149 - $999/mo) so they arrive with clean, organized binders?`,
-                          'script_cpa'
-                        )
-                      }
-                      className="text-indigo-400 hover:text-indigo-300 font-mono text-[11px] underline cursor-pointer"
-                    >
-                      {copiedSnippet === 'script_cpa' ? '✓ Copied Script!' : '📋 Copy CPA Pitch'}
-                    </button>
-                  </div>
-                  <pre className="p-3 rounded-lg bg-slate-900 text-[11px] font-mono text-indigo-200 overflow-x-auto leading-relaxed border border-slate-800">
-{`"Hi [Auditor], we run 1-Compliance OS. Our subscribers export clean 1-click AICPA binders. Can we refer our audit-ready subscribers to your firm, and have you send unorganized clients to our software?"`}
-                  </pre>
-                </div>
-              </div>
-
-              {/* Channel 3: Verified Vendor Passport ($49/mo) */}
-              <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">
-                    METHOD 03 · VOLUME SALES
-                  </span>
-                  <span className="text-xs font-mono text-emerald-400 font-bold">$49/mo / Vendor</span>
-                </div>
-                <h4 className="text-base font-bold text-white">Sell Verified Vendor Passports to Suppliers</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Every small SaaS tool, freelancer, IT contractor, and marketing agency is tired of filling out repetitive 100-question security spreadsheets for every client.
-                </p>
-
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1">
-                  <div className="font-bold text-emerald-300">The Offer:</div>
-                  <div>• Fill out credentials once in 1-Compliance OS</div>
-                  <div>• Receive a <strong>Digital Verified Security Trust Badge</strong></div>
-                  <div>• Share one verified link with all enterprise clients for $49/mo</div>
-                </div>
-
-                <div className="space-y-2 pt-2 border-t border-slate-800">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-300">Vendor Outreach Pitch:</span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handleCopyText(
-`Hey [Agency / Vendor Name], tired of filling out 100-question security spreadsheets every time a corporate client hires you?
-
-We just launched the 1-Compliance Verified Vendor Passport (www.1-compliance.com). You verify your security posture once, get a verified digital badge, and send one link to enterprise clients so you never fill out another security questionnaire.
-
-It's just $49/mo. Grab your verified passport here: www.1-compliance.com`,
-                          'script_vendor'
-                        )
-                      }
-                      className="text-emerald-400 hover:text-emerald-300 font-mono text-[11px] underline cursor-pointer"
-                    >
-                      {copiedSnippet === 'script_vendor' ? '✓ Copied Script!' : '📋 Copy Vendor Pitch'}
-                    </button>
-                  </div>
-                  <pre className="p-3 rounded-lg bg-slate-900 text-[11px] font-mono text-emerald-200 overflow-x-auto leading-relaxed border border-slate-800">
-{`"Tired of 100-question security spreadsheets? Get the 1-Compliance Verified Vendor Passport. Fill out once, get a verified trust link for all corporate clients for $49/mo."`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-
-            {/* Practical Daily 1-Hour Schedule for Immediate Revenue */}
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <h4 className="text-sm font-black text-white flex items-center gap-2">
-                <span>🗓️</span>
-                <span>Your Realistic 72-Hour Survival Schedule (No Burnout, Maximum Impact)</span>
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-300">
-                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-                  <div className="font-bold text-amber-400 font-mono">DAY 1: STABILIZE HOME</div>
-                  <p>1. Open ACCESS HRA (nyc.gov/accesshra) and submit the One Shot Deal rent application.</p>
-                  <p>2. Call Legal Aid Society (888-663-6880) to get an emergency housing lawyer assigned to freeze eviction.</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-                  <div className="font-bold text-cyan-400 font-mono">DAY 2: SEND 20 MESSAGES</div>
-                  <p>1. Go to LinkedIn or Y-Combinator directory.</p>
-                  <p>2. Send 20 copy-pasted messages to founders with the "Security Questionnaire Rescue" script.</p>
-                  <p>3. Just 1 conversion = $299 to $999 in your Square account.</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
-                  <div className="font-bold text-emerald-400 font-mono">DAY 3: CALL 5 NYC CPAs</div>
-                  <p>1. Google "SOC 2 CPA firm NYC" or "ISO 27001 auditor Manhattan".</p>
-                  <p>2. Send the CPA partnership script to 5 audit managers.</p>
-                  <p>3. Secure your first audit referral stream.</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       )}
@@ -1311,207 +999,37 @@ It's just $49/mo. Grab your verified passport here: www.1-compliance.com`,
                       </div>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSquareSuccess(false);
-                        setIsSquareModalOpen(true);
-                      }}
-                      className="px-6 py-3 rounded-xl text-xs font-black text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 transition-all shadow-lg shrink-0 flex items-center gap-2 cursor-pointer"
-                    >
-                      <span>💳</span>
-                      <span>Launch Square Checkout Simulator (${calculatedMonthlyCost.toLocaleString()}/mo)</span>
-                    </button>
+                    <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                      <a
+                        href={
+                          squareUsers <= 1
+                            ? 'https://square.link/u/GvqwdSHx'
+                            : squareUsers <= 5
+                            ? 'https://square.link/u/GvqwdSHx'
+                            : 'https://square.link/u/bGLuAsoa'
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 rounded-xl text-xs font-black text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 transition-all shadow-lg flex items-center gap-2 cursor-pointer"
+                      >
+                        <span>💳</span>
+                        <span>Proceed to Square Checkout (${calculatedMonthlyCost.toLocaleString()}/mo) ↗</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSquareSuccess(false);
+                          setIsSquareModalOpen(true);
+                        }}
+                        className="px-4 py-3 rounded-xl text-xs font-bold text-emerald-300 bg-slate-900 hover:bg-slate-800 border border-emerald-700/60 transition-all cursor-pointer"
+                      >
+                        Configure Corporate Domain &amp; Invoice
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
             })()}
-          </div>
-
-          {/* How to Build It in Square (Technical Architecture) */}
-          <div className="p-6 md:p-8 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-6">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
-                <span>PRODUCTION SQUARE INTEGRATION ARCHITECTURE</span>
-                <span>·</span>
-                <span>SQUARE SUBSCRIPTIONS API V2</span>
-              </div>
-              <h3 className="text-xl font-bold text-white mt-1">
-                How Square Automatically Tallies and Charges For +100 Users
-              </h3>
-              <p className="text-xs text-slate-400 mt-1 max-w-3xl leading-relaxed">
-                Here is the exact technical implementation to create the Square payment portal for your website. 
-                Square handles recurring billing seamlessly by using the <code className="text-emerald-300">Catalog API</code> and <code className="text-emerald-300">Subscriptions API</code> with dynamic quantities.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Step 1: Catalog Setup */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-emerald-400">STEP 1: SQUARE CATALOG</span>
-                  <span className="text-[10px] font-mono text-slate-500">Square Dashboard</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">Create 100-User Cohort Plan</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  In your Square Dashboard under <strong>Subscriptions → Plans</strong>, define a base recurring subscription item:
-                </p>
-                <div className="p-3 rounded-lg bg-slate-900 text-xs font-mono text-slate-300 space-y-1 border border-slate-800">
-                  <div className="text-emerald-400 font-bold">Plan Name: Enterprise 100-User Cohort</div>
-                  <div>Cadence: Monthly (or Annual)</div>
-                  <div>Price: $999.00 USD</div>
-                  <div className="text-slate-500 pt-1 border-t border-slate-800">Plan ID: `plan_ent_100_cohort_999`</div>
-                </div>
-              </div>
-
-              {/* Step 2: Auto-Tally Math in Frontend */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-emerald-400">STEP 2: REGISTRATION FORM</span>
-                  <span className="text-[10px] font-mono text-slate-500">React Client</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">Capture User Count & Auto-Tally</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  When the company enters their desired headcount (e.g. 120 users), calculate the quantity of cohorts to bill:
-                </p>
-                <pre className="p-3 rounded-lg bg-slate-900 text-[11px] font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
-{`const calculateSquareTally = (users) => {
-  if (users <= 1) return { planId: 'solo_149', qty: 1, total: 149 };
-  if (users <= 5) return { planId: 'team_299', qty: 1, total: 299 };
-  const cohorts = Math.ceil(users / 100);
-  return {
-    planId: 'plan_ent_100_cohort_999',
-    qty: cohorts, // e.g. 120 users -> 2
-    total: cohorts * 999, // $1,998/mo
-  };
-};`}
-                </pre>
-              </div>
-
-              {/* Step 3: Square Subscription Creation */}
-              <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-emerald-400">STEP 3: SQUARE API CALL</span>
-                  <span className="text-[10px] font-mono text-slate-500">Express Backend</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">Create Subscription With Quantity</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Submit to Square's Subscriptions API. Square will bill the card on file automatically every month:
-                </p>
-                <pre className="p-3 rounded-lg bg-slate-900 text-[11px] font-mono text-cyan-300 border border-slate-800 overflow-x-auto">
-{`// Square Subscriptions API (/v2/subscriptions)
-const { result } = await squareClient.subscriptionsApi.createSubscription({
-  idempotencyKey: crypto.randomUUID(),
-  locationId: process.env.SQUARE_LOCATION_ID,
-  planVariationId: 'plan_ent_100_cohort_999',
-  customerId: squareCustomerId,
-  cardId: squareCardId,
-  quantity: cohorts, // e.g. 2 for 120 users
-  taxPercentage: '0',
-});`}
-                </pre>
-              </div>
-            </div>
-
-            {/* Complete Production Code Snippet */}
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-emerald-400">
-                  COMPLETE BACKEND SERVER ROUTE: `POST /api/square/create-enterprise-subscription`
-                </span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    handleCopyText(
-`import { Client, Environment } from 'square';
-
-const square = new Client({
-  accessToken: process.env.SQUARE_ACCESS_TOKEN,
-  environment: Environment.Production, // or Environment.Sandbox
-});
-
-app.post('/api/square/create-enterprise-subscription', async (req, res) => {
-  try {
-    const { companyName, billingEmail, userHeadcount, sourceId } = req.body;
-
-    // 1. Calculate cohorts: 120 users -> 2 cohorts ($1,998/mo)
-    const cohorts = userHeadcount <= 5 ? 1 : Math.ceil(userHeadcount / 100);
-    const planVariationId = userHeadcount <= 1 
-      ? 'PLAN_SOLO_149' 
-      : userHeadcount <= 5 
-      ? 'PLAN_TEAM_299' 
-      : 'PLAN_ENTERPRISE_100_COHORT_999';
-
-    // 2. Create or find Square Customer for the company
-    const { result: customerRes } = await square.customersApi.createCustomer({
-      companyName,
-      emailAddress: billingEmail,
-      note: \`1-Compliance Enterprise Tenant: \${userHeadcount} users requested (\${cohorts * 100} seats)\`,
-    });
-    const customerId = customerRes.customer.id;
-
-    // 3. Store company card on file securely via Square Web Payments SDK token
-    const { result: cardRes } = await square.cardsApi.createCard({
-      idempotencyKey: crypto.randomUUID(),
-      sourceId, // generated by Square Web Payments SDK on the frontend
-      card: { customerId },
-    });
-    const cardId = cardRes.card.id;
-
-    // 4. Create the recurring Square Subscription with the tallied quantity
-    const { result: subRes } = await square.subscriptionsApi.createSubscription({
-      idempotencyKey: crypto.randomUUID(),
-      locationId: process.env.SQUARE_LOCATION_ID,
-      planVariationId,
-      customerId,
-      cardId,
-      quantity: cohorts,
-    });
-
-    // 5. Store company tenant record in database
-    await db.companyOrganizations.create({
-      companyName,
-      billingEmail,
-      squareSubscriptionId: subRes.subscription.id,
-      seatsPurchased: cohorts * 100,
-      activeMembersCount: 0,
-      status: 'active',
-    });
-
-    res.json({
-      success: true,
-      subscriptionId: subRes.subscription.id,
-      seatsAllocated: cohorts * 100,
-      monthlyTotal: cohorts * 999,
-    });
-  } catch (error) {
-    console.error('Square subscription failed:', error);
-    res.status(500).json({ error: error.message });
-  }
-});`,
-                      'square_route'
-                    )
-                  }
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-slate-200 cursor-pointer"
-                >
-                  {copiedSnippet === 'square_route' ? '✓ Copied!' : '📋 Copy Square Express Route'}
-                </button>
-              </div>
-
-              <pre className="p-4 rounded-xl bg-slate-900 text-xs font-mono text-emerald-300 overflow-x-auto leading-relaxed">
-{`// Square Subscriptions Auto-Tally Route (Node.js & Square SDK)
-const cohorts = Math.ceil(userHeadcount / 100); // 120 users -> 2 cohorts ($1,998/mo)
-
-const { result: subRes } = await square.subscriptionsApi.createSubscription({
-  idempotencyKey: crypto.randomUUID(),
-  locationId: process.env.SQUARE_LOCATION_ID,
-  planVariationId: 'PLAN_ENTERPRISE_100_COHORT_999',
-  customerId: squareCustomerId,
-  cardId: squareCardId,
-  quantity: cohorts, // Square bills quantity * $999 automatically!
-});`}
-              </pre>
-            </div>
           </div>
         </div>
       )}
@@ -2678,739 +2196,7 @@ const { result: subRes } = await square.subscriptionsApi.createSubscription({
       )}
 
       {/* ========================================================================= */}
-      {/* TAB 6: TECHNICAL SAAS LAUNCH GUIDE (STRIPE BLUEPRINT) */}
-      {/* ========================================================================= */}
-      {activeSubTab === 'blueprint' && (
-        <div className="space-y-6">
-          <div className="p-6 rounded-xl bg-slate-900/70 border border-slate-800 space-y-6">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-mono text-cyan-400">
-                <span>FOUNDER BLUEPRINT</span>
-                <span>·</span>
-                <span>COMMERCIAL REVENUE EXECUTION</span>
-              </div>
-              <h2 className="text-xl font-bold text-white mt-1">
-                How to Connect Real Stripe Subscriptions & Launch Your SaaS
-              </h2>
-              <p className="text-xs text-slate-400 mt-1 max-w-3xl">
-                Configure your Stripe account to start collecting recurring monthly and annual subscriptions ($149/mo Single User, $299/mo Small Company, $999/mo Enterprise).
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Step 1: Stripe Setup */}
-              <div className="p-5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="text-xs font-mono text-cyan-400 font-bold">STEP 01</div>
-                  <span className="text-[11px] text-emerald-400 font-mono">100% Free Setup</span>
-                </div>
-                <h3 className="text-sm font-bold text-white">Create Stripe Products & Prices</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Go to <a href="https://dashboard.stripe.com" target="_blank" rel="noreferrer" className="text-cyan-400 underline">stripe.com</a> and add these 4 recurring products:
-                </p>
-                <div className="p-2.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 space-y-1">
-                  <div>1. Solo Plan: $149/mo (or $124/mo annual)</div>
-                  <div>2. Team Plan: $299/mo (or $249/mo annual)</div>
-                  <div>3. Enterprise Scale: $999/mo (or $832/mo annual)</div>
-                  <div>4. Vendor Passport: $49/mo (or $41/mo annual)</div>
-                </div>
-              </div>
-
-              {/* Step 2: Checkout Session API */}
-              <div className="p-5 rounded-lg bg-slate-950/80 border border-slate-800 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="text-xs font-mono text-cyan-400 font-bold">STEP 02</div>
-                  <span className="text-[11px] text-cyan-400 font-mono">Express Route</span>
-                </div>
-                <h3 className="text-sm font-bold text-white">Mount Checkout Session Route</h3>
-                <pre className="p-2.5 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-cyan-300 overflow-x-auto">
-{`app.post('/api/create-checkout', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    mode: 'subscription',
-    payment_method_types: ['card'],
-    line_items: [{ price: req.body.priceId, quantity: req.body.cohortBlocks || 1 }],
-    success_url: \`\${process.env.APP_URL}?session_id={CHECKOUT_SESSION_ID}\`,
-    cancel_url: \`\${process.env.APP_URL}/pricing\`,
-    customer_email: req.body.email,
-  });
-  res.json({ url: session.url });
-});`}
-                </pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* TAB 7: WEBSITE INTEGRATION & EMBED FOR WWW.1-COMPLIANCE.COM               */}
-      {/* ========================================================================= */}
-      {activeSubTab === 'website_embed' && (
-        <div className="space-y-6 animate-in fade-in duration-200">
-          {/* Header Banner */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 border-2 border-indigo-500/40 text-white shadow-xl space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
-                  Company Website Integration Hub
-                </span>
-              </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-black bg-cyan-400/20 text-cyan-300 border border-cyan-400/40">
-                Target: www.1-compliance.com
-              </span>
-            </div>
-
-            <h2 className="text-xl sm:text-2xl font-black tracking-tight">
-              Incorporate 1-Compliance OS Directly Onto www.1-compliance.com
-            </h2>
-            <p className="text-xs sm:text-sm text-indigo-200 leading-relaxed max-w-3xl font-medium">
-              Enable companies visiting <strong className="text-white">www.1-compliance.com</strong> to start subscriptions ($149, $299, $999/mo) directly from your website. You can embed the full operating system onto your domain, set up a branded app subdomain, or drop live subscription checkout cards into your marketing pages.
-            </p>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* GITHUB REPOSITORY INTEGRATION & WEBSITE SHARING CARD                      */}
-          {/* ========================================================================= */}
-          <div className="p-6 md:p-8 rounded-2xl bg-slate-950 text-white border-2 border-indigo-400/80 shadow-2xl space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white text-slate-950 flex items-center justify-center font-black text-xl shadow-md">
-                  🐙
-                </div>
-                <div>
-                  <h3 className="text-lg font-black text-white flex items-center gap-2">
-                    <span>How to Add 1-Compliance OS to GitHub & Connect to www.1-compliance.com</span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800">
-                      Step-by-Step
-                    </span>
-                  </h3>
-                  <p className="text-xs text-slate-400">
-                    Host your source code on GitHub, automate deployments to your website, and display GitHub verification badges to prospective buyers.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-xs font-mono">
-                <span className="px-3 py-1 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-700 font-bold">
-                  ✓ Git Initialized on `main` branch
-                </span>
-              </div>
-            </div>
-
-            {/* 3 Step Pipeline: AI Studio -> GitHub -> www.1-compliance.com */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Step 1 */}
-              <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold text-cyan-400">STEP 1: CREATE REPOSITORY</span>
-                  <span className="text-[10px] font-mono text-slate-500">github.com</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">Create Repo on GitHub</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Go to <a href="https://github.com/new" target="_blank" rel="noreferrer" className="text-cyan-400 underline font-bold">github.com/new</a> and create a new repository:
-                </p>
-                <div className="p-2.5 rounded bg-slate-950 text-xs font-mono text-cyan-300 space-y-0.5 border border-slate-800">
-                  <div>Repository Name: <strong>1-compliance-os</strong></div>
-                  <div>Visibility: <strong>Public</strong> or <strong>Private</strong></div>
-                  <div className="text-slate-500 text-[10px]">Do not initialize with README (already created)</div>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold text-emerald-400">STEP 2: PUSH CODE</span>
-                  <span className="text-[10px] font-mono text-slate-500">Terminal / Git CLI</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">Push Code to GitHub</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Run these commands in your project terminal to link your local code to your GitHub repo:
-                </p>
-                <div className="p-2.5 rounded bg-slate-950 text-xs font-mono text-emerald-300 space-y-1 border border-slate-800">
-                  <div className="text-slate-400 text-[10px]"># Replace with your username:</div>
-                  <div className="truncate">git remote add origin https://github.com/&lt;username&gt;/1-compliance-os.git</div>
-                  <div>git push -u origin main</div>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold text-purple-400">STEP 3: DEPLOY & SHARE</span>
-                  <span className="text-[10px] font-mono text-slate-500">Vercel / Cloudflare</span>
-                </div>
-                <h4 className="text-sm font-bold text-white">Auto-Deploy to Website</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Connect the GitHub repo to Vercel or Cloudflare Pages. Every time you push, it updates <strong className="text-white">www.1-compliance.com</strong> automatically.
-                </p>
-                <div className="p-2.5 rounded bg-slate-950 text-xs font-mono text-purple-300 border border-slate-800">
-                  <div>Production URL: <strong>www.1-compliance.com</strong></div>
-                  <div>App Portal: <strong>app.1-compliance.com</strong></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Copy Command Block */}
-            <div className="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-cyan-400">
-                  TERMINAL COMMANDS TO PUSH CODE TO GITHUB:
-                </span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    handleCopyText(
-`# 1. Check existing commits
-git status
-
-# 2. Add your GitHub remote repository (replace YOUR_USERNAME with your GitHub handle):
-git remote add origin https://github.com/YOUR_USERNAME/1-compliance-os.git
-
-# 3. Push to GitHub main branch:
-git push -u origin main`,
-                      'git_push'
-                    )
-                  }
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono font-bold text-slate-200 cursor-pointer shadow-xs"
-                >
-                  {copiedSnippet === 'git_push' ? '✓ Commands Copied!' : '📋 Copy Git Push Commands'}
-                </button>
-              </div>
-
-              <pre className="p-3.5 rounded-lg bg-slate-950 text-xs font-mono text-cyan-300 overflow-x-auto leading-relaxed border border-slate-800">
-{`# 1. Add your GitHub remote repository (replace with your GitHub username):
-git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/1-compliance-os.git
-
-# 2. Push all code, Sentinels, policies, and pricing modules to GitHub:
-git push -u origin main`}
-              </pre>
-            </div>
-
-            {/* Ready-to-Paste HTML Snippets to Share GitHub on www.1-compliance.com */}
-            <div className="space-y-3 pt-2">
-              <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                <span>🔗</span>
-                <span>Snippets to Share the GitHub Repository on www.1-compliance.com</span>
-              </h4>
-              <p className="text-xs text-slate-400">
-                Prospective buyers and enterprise compliance auditors love seeing the open architecture. Paste any of these widgets onto your marketing website:
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Website Header / Navbar GitHub Button */}
-                <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-white">A. Navbar GitHub Badge Button</span>
-                    <button
-                      onClick={() =>
-                        handleCopyText(
-`<a href="https://github.com/YOUR_USERNAME/1-compliance-os" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#24292e;color:#ffffff;border-radius:6px;font-size:12px;font-weight:bold;text-decoration:none;">
-  <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-  <span>View on GitHub</span>
-</a>`,
-                          'github_nav_btn'
-                        )
-                      }
-                      className="text-xs font-mono text-cyan-400 hover:text-cyan-300 underline cursor-pointer"
-                    >
-                      {copiedSnippet === 'github_nav_btn' ? '✓ Copied!' : '📋 Copy HTML'}
-                    </button>
-                  </div>
-                  <pre className="p-2.5 rounded bg-slate-950 text-[11px] font-mono text-slate-300 overflow-x-auto truncate">
-{`<a href="https://github.com/YOUR_USERNAME/1-compliance-os" target="_blank">View on GitHub</a>`}
-                  </pre>
-                </div>
-
-                {/* Markdown Shield Badges for Website or README */}
-                <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-white">B. Markdown Shields Badge</span>
-                    <button
-                      onClick={() =>
-                        handleCopyText(
-`[![GitHub](https://img.shields.io/badge/GitHub-1--compliance--os-181717?logo=github&logoColor=white)](https://github.com/YOUR_USERNAME/1-compliance-os)`,
-                          'github_shield'
-                        )
-                      }
-                      className="text-xs font-mono text-cyan-400 hover:text-cyan-300 underline cursor-pointer"
-                    >
-                      {copiedSnippet === 'github_shield' ? '✓ Copied!' : '📋 Copy Shield'}
-                    </button>
-                  </div>
-                  <pre className="p-2.5 rounded bg-slate-950 text-[11px] font-mono text-emerald-300 overflow-x-auto truncate">
-{`[![GitHub](https://img.shields.io/badge/GitHub-1--compliance--os-181717?logo=github)](...)`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="p-6 rounded-2xl bg-white border-2 border-indigo-200 shadow-md space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-indigo-100 flex-wrap gap-2">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-black text-slate-900 uppercase tracking-wider">
-                  🌐 Live Simulator: How It Appears on www.1-compliance.com
-                </span>
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-100 text-emerald-900 border border-emerald-300">
-                  Interactive Preview
-                </span>
-              </div>
-              <span className="text-xs text-slate-500 font-medium">
-                Live URL: <code className="font-mono text-indigo-600 font-bold">https://www.1-compliance.com/app</code>
-              </span>
-            </div>
-
-            {/* Mock Browser Frame */}
-            <div className="rounded-2xl border-2 border-slate-300 bg-slate-100 shadow-inner overflow-hidden">
-              {/* Browser chrome bar */}
-              <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-200 border-b border-slate-300">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-rose-400" />
-                  <span className="w-3 h-3 rounded-full bg-amber-400" />
-                  <span className="w-3 h-3 rounded-full bg-emerald-400" />
-                </div>
-                <div className="flex-1 max-w-md mx-auto px-3 py-1 rounded-lg bg-white border border-slate-300 text-xs font-mono text-slate-700 flex items-center justify-between shadow-xs">
-                  <span className="flex items-center gap-1.5 truncate">
-                    <span className="text-emerald-600 font-bold">🔒</span>
-                    <span>https://www.1-compliance.com/app</span>
-                  </span>
-                  <span className="text-[10px] text-slate-400">SSL 256-bit</span>
-                </div>
-              </div>
-
-              {/* Simulated Website Navigation Bar */}
-              <div className="p-4 bg-white border-b border-slate-200 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-cyan-500 text-white font-black text-xs flex items-center justify-center">
-                    1C
-                  </div>
-                  <span className="font-black text-slate-950 text-sm">1-Compliance.com</span>
-                </div>
-
-                <div className="hidden sm:flex items-center gap-4 text-xs font-bold text-slate-600">
-                  <span className="text-indigo-600">Operating System</span>
-                  <span>Frameworks</span>
-                  <span>Pricing ($149 - $999+)</span>
-                  <span>Training Manual</span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => handleStartCheckout(PLANS[0])}
-                    className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-black text-xs shadow-xs hover:opacity-95 cursor-pointer"
-                  >
-                    Start Subscription →
-                  </button>
-                </div>
-              </div>
-
-              {/* Simulated Embedded OS Container */}
-              <div className="p-6 bg-gradient-to-br from-indigo-50 to-sky-50 text-slate-900 space-y-4">
-                <div className="p-4 rounded-xl bg-white border border-indigo-200 shadow-sm flex items-center justify-between flex-wrap gap-3">
-                  <div className="flex items-center gap-3">
-                    <img src="/assets/sentinels/jax_transparent.png" alt="Jax" className="w-10 h-10 object-contain" />
-                    <div>
-                      <h4 className="text-sm font-black text-slate-950">1-Compliance OS Embedded View</h4>
-                      <p className="text-xs text-slate-600">Active Tenant Session · Continuous Audit Readiness 92%</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => onNavigateTab('dashboard')}
-                      className="px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-900 border border-indigo-200 text-xs font-bold hover:bg-indigo-100 cursor-pointer"
-                    >
-                      Open Full Workspace
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleStartCheckout(PLANS[2])}
-                      className="px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 cursor-pointer shadow-xs"
-                    >
-                      Subscribe Enterprise ($999/mo)
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 3 Copyable Integration Methods */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Method A: Subdomain CNAME */}
-            <div className="p-5 rounded-2xl bg-white border-2 border-indigo-200 shadow-sm space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-black text-indigo-600 uppercase px-2 py-0.5 rounded bg-indigo-50 border border-indigo-200">
-                  METHOD 01 · RECOMMENDED
-                </span>
-                <span className="text-xs text-emerald-600 font-bold">Fastest Setup</span>
-              </div>
-
-              <h3 className="text-base font-black text-slate-950">
-                Point Subdomain (app.1-compliance.com)
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Add this DNS CNAME record in your domain host (GoDaddy, Namecheap, Cloudflare, AWS Route 53) to host the full OS on your custom domain:
-              </p>
-
-              <div className="p-3 rounded-xl bg-slate-950 text-slate-100 font-mono text-xs space-y-1">
-                <div className="text-slate-400"># DNS CNAME Record:</div>
-                <div className="text-cyan-300">Type:   CNAME</div>
-                <div className="text-cyan-300">Host:   app  (or os)</div>
-                <div className="text-amber-300 truncate">Target: ais-pre-bujpgws4gxgxrag4iyp337-615345061292.us-east1.run.app</div>
-                <div className="text-slate-400">TTL:    Automatic (3600s)</div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() =>
-                  handleCopyText(
-                    'CNAME app ais-pre-bujpgws4gxgxrag4iyp337-615345061292.us-east1.run.app',
-                    'cname'
-                  )
-                }
-                className="w-full py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black transition-colors cursor-pointer shadow-xs"
-              >
-                {copiedSnippet === 'cname' ? '✓ CNAME Copied to Clipboard!' : '📋 Copy DNS CNAME Record'}
-              </button>
-            </div>
-
-            {/* Method B: In-Page iFrame Embed */}
-            <div className="p-5 rounded-2xl bg-white border-2 border-indigo-200 shadow-sm space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-black text-cyan-600 uppercase px-2 py-0.5 rounded bg-cyan-50 border border-cyan-200">
-                  METHOD 02 · IN-PAGE EMBED
-                </span>
-                <span className="text-xs text-slate-500 font-mono">WordPress / Webflow</span>
-              </div>
-
-              <h3 className="text-base font-black text-slate-950">
-                Embed Inside www.1-compliance.com/app
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Paste this HTML snippet into any CMS page on <strong className="text-indigo-950">www.1-compliance.com/app</strong> to embed the full responsive operating system:
-              </p>
-
-              <div className="p-3 rounded-xl bg-slate-950 text-slate-100 font-mono text-[11px] leading-relaxed overflow-x-auto">
-{`<div style="width:100%; height:100vh; overflow:hidden;">
-  <iframe
-    src="https://ais-pre-bujpgws4gxgxrag4iyp337-615345061292.us-east1.run.app"
-    title="1-Compliance OS"
-    style="width:100%; height:100%; border:none;"
-    allow="clipboard-write; camera; microphone; speaker"
-  ></iframe>
-</div>`}
-              </div>
-
-              <button
-                type="button"
-                onClick={() =>
-                  handleCopyText(
-                    `<div style="width:100%; height:100vh; overflow:hidden;"><iframe src="https://ais-pre-bujpgws4gxgxrag4iyp337-615345061292.us-east1.run.app" title="1-Compliance OS" style="width:100%; height:100%; border:none;" allow="clipboard-write; camera; microphone; speaker"></iframe></div>`,
-                    'iframe'
-                  )
-                }
-                className="w-full py-2 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-black transition-colors cursor-pointer shadow-xs"
-              >
-                {copiedSnippet === 'iframe' ? '✓ Embed Code Copied!' : '📋 Copy iFrame Embed Code'}
-              </button>
-            </div>
-
-            {/* Method C: Direct "Start Subscription" Pricing Cards */}
-            <div className="p-5 rounded-2xl bg-white border-2 border-indigo-200 shadow-sm space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-black text-emerald-600 uppercase px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">
-                  METHOD 03 · PRICING TABLE
-                </span>
-                <span className="text-xs text-emerald-600 font-bold">$149 / $299 / $999</span>
-              </div>
-
-              <h3 className="text-base font-black text-slate-950">
-                Direct Subscription Links for www.1-compliance.com/pricing
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Add these direct checkout links to your website pricing buttons so buyers are immediately directed to purchase:
-              </p>
-
-              <div className="p-3 rounded-xl bg-slate-950 text-slate-100 font-mono text-[11px] space-y-1.5">
-                <div>&lt;!-- Solo $149/mo --&gt;</div>
-                <div className="text-emerald-300">&lt;a href="https://app.1-compliance.com/#subscribe-solo"&gt;Start Solo ($149/mo)&lt;/a&gt;</div>
-                <div>&lt;!-- Team $299/mo --&gt;</div>
-                <div className="text-cyan-300">&lt;a href="https://app.1-compliance.com/#subscribe-team"&gt;Start Team ($299/mo)&lt;/a&gt;</div>
-                <div>&lt;!-- Enterprise $999/mo --&gt;</div>
-                <div className="text-indigo-300">&lt;a href="https://app.1-compliance.com/#subscribe-enterprise"&gt;Start Enterprise ($999/mo)&lt;/a&gt;</div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() =>
-                  handleCopyText(
-                    `<a href="https://app.1-compliance.com/#subscriptions" class="btn-primary">Start 1-Compliance Subscription ($149 - $999/mo)</a>`,
-                    'pricing_btn'
-                  )
-                }
-                className="w-full py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black transition-colors cursor-pointer shadow-xs"
-              >
-                {copiedSnippet === 'pricing_btn' ? '✓ Buttons Copied!' : '📋 Copy Website Pricing Links'}
-              </button>
-            </div>
-
-            {/* Method D: Website Header CTA */}
-            <div className="p-5 rounded-2xl bg-white border-2 border-indigo-200 shadow-sm space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-black text-purple-600 uppercase px-2 py-0.5 rounded bg-purple-50 border border-purple-200">
-                  METHOD 04 · NAVBAR CTA
-                </span>
-                <span className="text-xs text-slate-500 font-mono">Header Button</span>
-              </div>
-
-              <h3 className="text-base font-black text-slate-950">
-                Navbar "Launch 1-Compliance OS" CTA
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Drop this button into the top right navigation bar of <strong className="text-indigo-950">www.1-compliance.com</strong>:
-              </p>
-
-              <div className="p-3 rounded-xl bg-slate-950 text-slate-100 font-mono text-[11px] leading-relaxed overflow-x-auto">
-{`<a href="https://app.1-compliance.com" style="background:#4f46e5;color:#fff;padding:8px 16px;border-radius:10px;font-weight:bold;text-decoration:none;">
-  🚀 Launch 1-Compliance OS
-</a>`}
-              </div>
-
-              <button
-                type="button"
-                onClick={() =>
-                  handleCopyText(
-                    `<a href="https://app.1-compliance.com" style="background:#4f46e5;color:#fff;padding:8px 16px;border-radius:10px;font-weight:bold;text-decoration:none;">🚀 Launch 1-Compliance OS</a>`,
-                    'nav_btn'
-                  )
-                }
-                className="w-full py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-black transition-colors cursor-pointer shadow-xs"
-              >
-                {copiedSnippet === 'nav_btn' ? '✓ Navbar Button Copied!' : '📋 Copy Navbar Button HTML'}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* TAB 8: STANDALONE IT & TECH TEAM PROGRAM BLUEPRINT                        */}
-      {/* ========================================================================= */}
-      {activeSubTab === 'standalone_it' && (
-        <div className="space-y-6 animate-in fade-in duration-200">
-          {/* Header Banner */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 border-2 border-cyan-500/40 text-white shadow-xl space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
-                  Internal IT & Tech Team Deployment Roadmap
-                </span>
-              </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-black bg-emerald-400/20 text-emerald-300 border border-emerald-400/40">
-                Self-Hosted & Desktop Packaging
-              </span>
-            </div>
-
-            <h2 className="text-xl sm:text-2xl font-black tracking-tight">
-              Standalone Enterprise Program Blueprint for Future IT Teams
-            </h2>
-            <p className="text-xs sm:text-sm text-cyan-200 leading-relaxed max-w-3xl font-medium">
-              You are currently hosting online so you can advertise on <strong className="text-white">www.1-compliance.com</strong> and monetize immediately. When you hire your internal IT and tech engineering team, they can use this exact blueprint to package 1-Compliance OS into a standalone on-premises container or offline desktop program.
-            </p>
-          </div>
-
-          {/* 3-Phase Commercial & Engineering Roadmap */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 rounded-2xl bg-white border-2 border-emerald-300 shadow-sm space-y-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-emerald-100 text-emerald-900">
-                PHASE 01 · ACTIVE TODAY
-              </span>
-              <h3 className="text-sm font-black text-slate-950">Online SaaS Subscription Mode</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Zero internal IT team required. Hosted in Google Cloud. Ready to market on <strong>www.1-compliance.com</strong> with automated card billing ($149, $299, $999/mo).
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white border-2 border-indigo-200 shadow-sm space-y-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-indigo-100 text-indigo-900">
-                PHASE 02 · FUTURE IT TEAM
-              </span>
-              <h3 className="text-sm font-black text-slate-950">Private VPC & On-Premises Docker</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Your future tech team deploys containerized instances inside clients' AWS, Azure, or on-premises servers for strict healthcare and defense compliance.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white border-2 border-cyan-200 shadow-sm space-y-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-cyan-100 text-cyan-900">
-                PHASE 03 · STANDALONE DESKTOP
-              </span>
-              <h3 className="text-sm font-black text-slate-950">Offline Desktop Program (.exe / .dmg)</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Packaged with Electron/Tauri as a standalone desktop executable installed on compliance officers' laptops with local SQLite database storage.
-              </p>
-            </div>
-          </div>
-
-          {/* Technical Docker & IT Artifacts */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Dockerfile Artifact */}
-            <div className="p-5 rounded-2xl bg-slate-950 text-slate-100 border border-slate-800 space-y-3 shadow-md">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-cyan-400">ARTIFACT 01: Dockerfile</span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    handleCopyText(
-`FROM node:22-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:22-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-ENV PORT=3000
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/server.ts ./
-RUN npm ci --omit=dev
-EXPOSE 3000
-CMD ["npm", "run", "start"]`,
-                      'dockerfile'
-                    )
-                  }
-                  className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] font-bold text-slate-200 cursor-pointer"
-                >
-                  {copiedSnippet === 'dockerfile' ? '✓ Copied!' : '📋 Copy Dockerfile'}
-                </button>
-              </div>
-
-              <pre className="p-3 rounded-xl bg-slate-900 text-[11px] font-mono text-cyan-300 leading-relaxed overflow-x-auto">
-{`FROM node:22-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:22-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-ENV PORT=3000
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/server.ts ./
-RUN npm ci --omit=dev
-EXPOSE 3000
-CMD ["npm", "run", "start"]`}
-              </pre>
-            </div>
-
-            {/* Docker Compose Multi-Container Stack */}
-            <div className="p-5 rounded-2xl bg-slate-950 text-slate-100 border border-slate-800 space-y-3 shadow-md">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-emerald-400">ARTIFACT 02: docker-compose.yml</span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    handleCopyText(
-`version: "3.8"
-services:
-  one-compliance-os:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - PORT=3000
-      - NODE_ENV=production
-      - DATABASE_URL=postgresql://postgres:secret@db:5432/compliance
-    depends_on:
-      - db
-
-  db:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_DB: compliance
-      POSTGRES_PASSWORD: secret
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-volumes:
-  pgdata:`,
-                      'compose'
-                    )
-                  }
-                  className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] font-bold text-slate-200 cursor-pointer"
-                >
-                  {copiedSnippet === 'compose' ? '✓ Copied!' : '📋 Copy Compose Stack'}
-                </button>
-              </div>
-
-              <pre className="p-3 rounded-xl bg-slate-900 text-[11px] font-mono text-emerald-300 leading-relaxed overflow-x-auto">
-{`version: "3.8"
-services:
-  one-compliance-os:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - PORT=3000
-      - NODE_ENV=production
-      - DATABASE_URL=postgresql://postgres:secret@db:5432/compliance
-    depends_on:
-      - db
-
-  db:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_DB: compliance
-      POSTGRES_PASSWORD: secret
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-volumes:
-  pgdata:`}
-              </pre>
-            </div>
-          </div>
-
-          {/* Internal IT & Tech Team Checklist */}
-          <div className="p-5 rounded-2xl bg-white border-2 border-indigo-200 shadow-sm space-y-3">
-            <h3 className="text-sm font-black text-slate-950 flex items-center gap-2">
-              <span>🛠️</span>
-              <span>Internal IT & Tech Team Onboarding Checklist</span>
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                <strong>1. Production Database:</strong>
-                <p>Deploy persistent PostgreSQL database with daily automated snapshots to store tenant member records and evidence chains of custody.</p>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                <strong>2. SSL / TLS Certificate:</strong>
-                <p>Automate Let's Encrypt or Cloudflare TLS 1.3 certificates for <code>app.1-compliance.com</code> and customer custom domains.</p>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                <strong>3. Stripe Webhook Listener:</strong>
-                <p>Verify Stripe webhook signature (<code>invoice.payment_succeeded</code>) to automatically provision organization seats upon customer payment.</p>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                <strong>4. Desktop App Packaging:</strong>
-                <p>Run <code>npx electron-builder</code> to produce signable Windows (.exe) and macOS (.dmg) binaries for air-gapped enterprise contracts.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* CHECKOUT SIMULATION MODAL */}
+      {/* CHECKOUT & ORGANIZATION CONFIGURATION MODAL                               */}
       {/* ========================================================================= */}
       {isCheckoutOpen && selectedPlan && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200">
@@ -3486,13 +2272,16 @@ volumes:
                     >
                       Cancel
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => setCheckoutStep('payment')}
-                      className="px-5 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors"
+                    <a
+                      href={selectedPlan.squareCheckoutUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => handleCompletePayment()}
+                      className="px-5 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors flex items-center gap-1.5"
                     >
-                      Continue to Payment Details →
-                    </button>
+                      <span>Complete Payment via Square</span>
+                      <span>↗</span>
+                    </a>
                   </div>
                 </div>
               )}
@@ -3507,39 +2296,7 @@ volumes:
                       </span>
                     </div>
                     <div className="text-xs text-slate-400">
-                      Payment processed securely via Stripe. 256-bit SSL encrypted.
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-1">Card Number</label>
-                      <input
-                        type="text"
-                        readOnly
-                        value="•••• •••• •••• 4242"
-                        className="w-full px-3 py-2 text-xs rounded-lg bg-slate-950 border border-slate-700 text-slate-300 font-mono"
-                      />
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <label className="block text-xs font-medium text-slate-300 mb-1">Expires</label>
-                        <input
-                          type="text"
-                          readOnly
-                          value="12 / 28"
-                          className="w-full px-3 py-2 text-xs rounded-lg bg-slate-950 border border-slate-700 text-slate-300 font-mono"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-medium text-slate-300 mb-1">CVC</label>
-                        <input
-                          type="text"
-                          readOnly
-                          value="•••"
-                          className="w-full px-3 py-2 text-xs rounded-lg bg-slate-950 border border-slate-700 text-slate-300 font-mono"
-                        />
-                      </div>
+                      Payment processed securely via Square. 256-bit SSL encrypted.
                     </div>
                   </div>
 
@@ -3551,13 +2308,15 @@ volumes:
                     >
                       ← Back
                     </button>
-                    <button
-                      type="button"
+                    <a
+                      href={selectedPlan.squareCheckoutUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={handleCompletePayment}
                       className="px-6 py-2.5 text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors shadow-lg"
                     >
-                      Authorize & Activate Subscription
-                    </button>
+                      Proceed to Square Checkout ↗
+                    </a>
                   </div>
                 </div>
               )}
@@ -3568,18 +2327,26 @@ volumes:
                     ✓
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-white">Subscription Activated!</h4>
+                    <h4 className="text-lg font-bold text-white">Square Checkout Opened!</h4>
                     <p className="text-xs text-slate-400 mt-1">
-                      Welcome to 1-Compliance OS. Jax and the Sentinels are standing guard.
+                      Complete your payment in the Square tab. Welcome to 1-Compliance OS — Human Compliance Experts &amp; our 5 Autonomous Sentinels are standing guard.
                     </p>
                   </div>
-                  <div className="pt-4">
+                  <div className="pt-4 flex items-center justify-center gap-3">
+                    <a
+                      href={selectedPlan.squareCheckoutUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors"
+                    >
+                      Re-open Square Payment Link ↗
+                    </a>
                     <button
                       type="button"
                       onClick={() => setIsCheckoutOpen(false)}
-                      className="px-6 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors"
+                      className="px-5 py-2 text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
                     >
-                      Return to Workspace
+                      Close Window
                     </button>
                   </div>
                 </div>
@@ -3589,7 +2356,7 @@ volumes:
         </div>
       )}
       {/* ========================================================================= */}
-      {/* SQUARE CHECKOUT SIMULATOR MODAL                                           */}
+      {/* SQUARE ENTERPRISE CHECKOUT MODAL                                          */}
       {/* ========================================================================= */}
       {isSquareModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-sm animate-in fade-in duration-200">
@@ -3678,7 +2445,7 @@ volumes:
                   {/* Payment Method Selector */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 block">
-                      Select Payment Method (Square Web Payments SDK):
+                      Supported Square Checkout Methods:
                     </label>
                     <div className="grid grid-cols-4 gap-2">
                       {[
@@ -3703,45 +2470,6 @@ volumes:
                     </div>
                   </div>
 
-                  {/* Simulated Card Fields */}
-                  <div className="space-y-3 p-4 rounded-xl bg-slate-950 border border-slate-800">
-                    <div className="flex items-center justify-between text-[11px] text-slate-400">
-                      <span>Square Encrypted Tokenization Field</span>
-                      <span className="text-emerald-400 font-mono">🔒 256-bit PCI DSS v4</span>
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] text-slate-400 mb-1">Corporate Card Number</label>
-                      <input
-                        type="text"
-                        readOnly
-                        value="•••• •••• •••• 5821"
-                        className="w-full px-3 py-2 text-xs rounded bg-slate-900 border border-slate-700 text-slate-200 font-mono"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <label className="block text-[11px] text-slate-400 mb-1">Expires</label>
-                        <input
-                          type="text"
-                          readOnly
-                          value="10 / 29"
-                          className="w-full px-3 py-2 text-xs rounded bg-slate-900 border border-slate-700 text-slate-200 font-mono"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[11px] text-slate-400 mb-1">Security Code (CVV)</label>
-                        <input
-                          type="text"
-                          readOnly
-                          value="•••"
-                          className="w-full px-3 py-2 text-xs rounded bg-slate-900 border border-slate-700 text-slate-200 font-mono"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
                   {/* Actions */}
                   <div className="flex items-center justify-between pt-2">
                     <button
@@ -3752,8 +2480,14 @@ volumes:
                       Cancel
                     </button>
 
-                    <button
-                      type="button"
+                    <a
+                      href={
+                        squareUsers <= 5
+                          ? 'https://square.link/u/GvqwdSHx'
+                          : 'https://square.link/u/bGLuAsoa'
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => {
                         const cohorts = squareUsers <= 5 ? 1 : Math.ceil(squareUsers / 100);
                         const unitPrice = squareCycle === 'annual' ? 832 : 999;
@@ -3773,8 +2507,8 @@ volumes:
                       }}
                       className="px-6 py-2.5 text-xs font-black text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 rounded-xl transition-all shadow-lg cursor-pointer"
                     >
-                      Authorize via Square →
-                    </button>
+                      Complete Payment on Square ↗
+                    </a>
                   </div>
                 </div>
               ) : (

@@ -280,7 +280,6 @@ export default function App() {
         onToggleTheme={() => setTheme(theme === 'midnight' ? 'luminous' : 'midnight')}
         branding={branding}
         isSubscribed={isSubscribed}
-        onToggleSubscribed={() => setIsSubscribed(!isSubscribed)}
         onOpenConformance={() => setIsConformanceModalOpen(true)}
         currentIndustry={industry}
         currentRegionName={jurisdiction.replace(/_/g, ' ').toUpperCase()}
@@ -302,21 +301,21 @@ export default function App() {
             /* Showcase Mode Banner for Public Visitors */
             <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-cyan-950/90 via-slate-900 to-indigo-950/90 border-2 border-cyan-500/60 shadow-lg flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-3 text-slate-200">
-                <span className="text-xl">👁️</span>
+                <span className="text-xl">🛡️</span>
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-black text-cyan-300 font-mono tracking-wider uppercase">
-                      Showcase Interactive Demo Mode
+                      Interactive Showcase Preview
                     </span>
-                    <span className="px-1.5 py-0.2 rounded bg-amber-400/20 text-amber-300 font-mono text-[10px] font-bold border border-amber-400/40">
-                      Read-Only Example
+                    <span className="px-1.5 py-0.2 rounded bg-emerald-400/20 text-emerald-300 font-mono text-[10px] font-bold border border-emerald-400/40">
+                      Human Compliance Experts + 5 Autonomous Sentinels
                     </span>
                     <span className="px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold border border-indigo-400/40">
                       {jurisdiction.replace(/_/g, ' ').toUpperCase()} · {industry.replace(/_/g, ' ').toUpperCase()}
                     </span>
                   </div>
                   <p className="text-[11px] text-slate-300 mt-0.5">
-                    Exploring sample data on <strong>www.1-compliance.com</strong>. Visitors have visual access to preview all Sentinels & frameworks. Subscribe ($149 Solo, $299 Team, $999 Ent) to activate live autonomous scanning for your company.
+                    Exploring sample compliance architecture on <strong>www.1-compliance.com</strong>. Powered by <strong>Human Compliance Experts (28+ yrs Legal &amp; Fordham Law MSL)</strong> working alongside <strong>Jax &amp; our Autonomous Sentinels</strong>. Subscribe to activate live continuous monitoring for your organization.
                   </p>
                 </div>
               </div>
@@ -334,15 +333,7 @@ export default function App() {
                   onClick={() => setActiveTab('subscriptions')}
                   className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-300 text-slate-950 font-black shadow-md hover:opacity-95 transition-all"
                 >
-                  💳 Unlock Full OS ($149+)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setIsSubscribed(true)}
-                  className="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-[11px] border border-slate-700 transition-colors"
-                  title="Simulate subscribed enterprise view (for founder / testing)"
-                >
-                  🔓 Founder Unlock
+                  💳 Subscribe &amp; Activate OS
                 </button>
               </div>
             </div>
@@ -361,7 +352,7 @@ export default function App() {
                     </span>
                   </div>
                   <p className="text-[11px] text-slate-300 mt-0.5">
-                    Operating system conformed for <strong>{branding.companyName}</strong>. All 5 Autonomous Sentinels standing guard.
+                    Operating system conformed for <strong>{branding.companyName}</strong>. Human Compliance Experts &amp; all 5 Autonomous Sentinels standing guard.
                   </p>
                 </div>
               </div>
@@ -380,14 +371,6 @@ export default function App() {
                   className="px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 font-black shadow-xs hover:bg-emerald-400 transition-colors"
                 >
                   💳 Manage Plan
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setIsSubscribed(false)}
-                  className="px-2 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 font-mono text-[11px] border border-slate-700"
-                  title="Switch back to visitor showcase preview"
-                >
-                  👁️ Demo View
                 </button>
               </div>
             </div>

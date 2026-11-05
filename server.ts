@@ -22,10 +22,28 @@ app.use((_req, res, next) => {
   next();
 });
 
+// Block accidental public exposure of private founder resume files in static assets
+app.use((req, res, next) => {
+  if (req.path.toLowerCase().includes('resume')) {
+    return res.status(403).json({ error: 'Private document access restricted' });
+  }
+  next();
+});
+
 // Serve static assets from public folder
 app.use('/public', express.static(path.resolve(__dirname, 'public')));
 app.use('/assets/aistudio', express.static(path.resolve(__dirname, 'public/assets/aistudio')));
 app.use('/assets/sentinels', express.static(path.resolve(__dirname, 'public/assets/sentinels')));
+
+// Lightweight Health Check Endpoint for Uptime Monitors (cron-job.org / UptimeRobot)
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    service: '1-Compliance OS',
+    governance: 'Human Compliance Experts + 5 Autonomous Sentinels',
+    timestamp: new Date().toISOString(),
+  });
+});
 
 // Initialize Google GenAI client (server-side only)
 const rawKey = process.env.GEMINI_API_KEY;
@@ -233,15 +251,15 @@ app.post('/api/scanner/analyze', async (req, res) => {
 });
 
 // -----------------------------------------------------------------------------
-// AI Autonomous Compliance Advisor (Server-Side Gemini 3.1 Flash Lite & 3.8 Flash)
+// AI Autonomous Compliance Advisor (Server-Side Gemini 2.5 Flash & 2.0 Flash)
 // -----------------------------------------------------------------------------
 async function callGeminiWithResilience(
   aiClient: GoogleGenAI,
   prompt: string,
   systemInstruction: string
 ): Promise<{ text: string; model: string } | null> {
-  // Candidate models: gemini-3.1-flash-lite (fast, low-latency), gemini-3.8-flash (robust fallback)
-  const candidateModels = ['gemini-3.1-flash-lite', 'gemini-3.8-flash'];
+  // Candidate models: gemini-2.5-flash (fast, low-latency), gemini-2.0-flash (robust fallback)
+  const candidateModels = ['gemini-2.5-flash', 'gemini-2.0-flash'];
 
   for (const modelName of candidateModels) {
     let timer: NodeJS.Timeout | null = null;
@@ -291,7 +309,7 @@ app.post('/api/ai/compliance-assist', async (req, res) => {
     }
 
     let prompt = '';
-    let systemInstruction = 'You are the Lead Autonomous Compliance Officer & Systems Architect for 1-Compliance OS. You specialize in helping startups and businesses achieve 100% compliant SOC 2 Type II, ISO 27001:2022, HIPAA, GDPR, PCI-DSS, NIST CSF 2.0, and EU AI Act using 100% FREE, open-source, and cloud free-tier tooling (zero vendor software bills). Provide actionable, rigorous, auditor-tested guidance.';
+    let systemInstruction = 'You are the Lead Compliance Systems Architect for 1-Compliance OS, working alongside Human Compliance Experts (28+ years corporate legal & Fordham Law Corporate Compliance MSL) and the 5 Autonomous Sentinels (Jax, Privacy, IT, Risky, HR). You specialize in helping organizations mitigate regulatory risk and achieve continuous audit readiness across SOC 2 Type II, ISO 27001:2022, HIPAA, GDPR, PCI-DSS, NIST CSF 2.0, and EU AI Act. Provide actionable, rigorous, auditor-tested guidance.';
 
     if (action === 'gap-analysis') {
       prompt = `Conduct a comprehensive, zero-cost compliance gap analysis for a company with the following profile:

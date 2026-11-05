@@ -246,12 +246,11 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-950">
               {branding?.isWhiteLabelActive
                 ? branding.welcomeMessage
-                : 'Autonomous Compliance Operating System'}
+                : 'Human Compliance Experts + Autonomous Sentinels'}
             </h1>
 
             <p className="text-sm font-semibold text-slate-800 leading-relaxed">
-              Real-time multi-framework orchestration for SOC 2 Type II, ISO 27001, HIPAA, GDPR, PCI DSS v4, and EU AI Act.
-              All monitored autonomously by Jax and the 4 category Sentinels with enterprise multi-seat access and third-party vendor vetting.
+              Real-time multi-framework governance for SOC 2 Type II, ISO 27001, HIPAA, GDPR, PCI DSS v4, and EU AI Act &mdash; combining seasoned Human Compliance Experts (28+ yrs corporate legal &amp; Fordham Law MSL) with 24/7 monitoring by Jax and the 4 Category Sentinels.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -268,7 +267,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
                 onClick={() => onNavigateTab('subscriptions')}
                 className="px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 border-2 border-indigo-300 text-slate-900 font-extrabold text-xs shadow-sm active:scale-95 transition-all cursor-pointer flex items-center gap-1.5"
               >
-                <span>💳 SaaS Plans ($149 - $999+)</span>
+                <span>💳 Subscription Plans ($49 - $999+)</span>
               </button>
 
               <button

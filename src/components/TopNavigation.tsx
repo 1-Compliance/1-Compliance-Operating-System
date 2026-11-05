@@ -419,31 +419,11 @@ export const TopNavigation: React.FC<TopNavigationProps> = ({
             type="button"
             onClick={() => setActiveTab('subscriptions')}
             className="flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-black text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 hover:opacity-95 transition-all shadow-md cursor-pointer whitespace-nowrap"
-            title="Subscription: $149 Solo, $299 Team, $999 Enterprise"
+            title="Subscribe to 1-Compliance OS & Website Scanner ($49 - $999/mo)"
           >
             <span>💳</span>
-            <span>{isSubscribed ? 'Manage Plan' : 'Subscribe ($149+)'}</span>
+            <span>{isSubscribed ? 'Manage Plan' : 'Subscribe'}</span>
           </button>
-
-          {/* 3. Demo Mode Toggle Button */}
-          {onToggleSubscribed && (
-            <button
-              type="button"
-              onClick={onToggleSubscribed}
-              className={`px-2.5 py-1.5 rounded-xl text-[11px] font-mono font-bold border transition-colors cursor-pointer whitespace-nowrap ${
-                isSubscribed
-                  ? 'bg-emerald-950/80 text-emerald-300 border-emerald-600/80 hover:bg-emerald-900'
-                  : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'
-              }`}
-              title={
-                isSubscribed
-                  ? 'Currently in Subscribed Enterprise Mode (Click to test Public Demo)'
-                  : 'Currently in Public Visitor Demo Mode (Click to test Subscribed)'
-              }
-            >
-              {isSubscribed ? '🔓 Subscribed' : '🔒 Demo Mode'}
-            </button>
-          )}
 
           {/* Theme Toggle Button */}
           {onToggleTheme && (

@@ -53,7 +53,7 @@ export const ShowcasePaywallModal: React.FC<ShowcasePaywallModalProps> = ({
         {/* Content Body */}
         <div className="p-6 space-y-6 overflow-y-auto max-h-[75vh]">
           <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-500/30 text-xs sm:text-sm text-slate-300 leading-relaxed">
-            <strong className="text-white">You are previewing a sample compliance environment on www.1-compliance.com.</strong> Public visitors have visual access to explore our 5 Autonomous Sentinels and compliance architecture, but live scanning, automated policy authoring, auditor exports, and custom team workspaces are strictly reserved for verified subscribers.
+            <strong className="text-white">You are previewing a sample compliance environment on www.1-compliance.com.</strong> 1-Compliance OS combines <strong className="text-cyan-300">Human Compliance Experts (28+ years Manhattan corporate legal &amp; compliance leadership, Fordham Law MSL)</strong> with our <strong className="text-emerald-300">5 Autonomous Sentinels (Jax, IT, Privacy, Risky, HR)</strong>. Live scanning, automated policy authoring, auditor exports, and custom team workspaces are reserved for active subscribers.
           </div>
 
           {/* Value Prop Checklist */}
@@ -64,11 +64,11 @@ export const ShowcasePaywallModal: React.FC<ShowcasePaywallModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Industry Auto-Conformance:</strong> Conforms specifically to Healthcare (HIPAA), FinTech (PCI DSS), SaaS, or Defense (CMMC).</span>
+                <span><strong>Human Expert + Autonomous Synergy:</strong> 24/7 autonomous monitoring by Jax &amp; our Sentinels paired with human compliance oversight.</span>
               </div>
               <div className="flex items-start gap-2 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Live Continuous Sentinels:</strong> Jax, IT, Privacy, HR, and Risky Sentinels actively guard your company.</span>
+                <span><strong>Industry Auto-Conformance:</strong> Conforms specifically to Law Firms, CPAs, Healthcare (HIPAA), FinTech (PCI DSS), SaaS, or Defense.</span>
               </div>
               <div className="flex items-start gap-2 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
@@ -84,48 +84,44 @@ export const ShowcasePaywallModal: React.FC<ShowcasePaywallModalProps> = ({
           {/* Quick Subscription Tier Selector */}
           <div className="space-y-3">
             <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-              Choose your company subscription tier:
+              Instant Checkout via Square (Activates Immediately):
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              {/* Solo */}
+              {/* Starter / Vendor */}
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between hover:border-cyan-500/60 transition-colors">
                 <div>
-                  <div className="font-bold text-white text-sm">Solo / Founder</div>
-                  <div className="text-slate-400 text-[11px] mt-0.5">1 Dedicated Login</div>
-                  <div className="text-2xl font-black font-mono text-cyan-400 my-2">$149<span className="text-xs text-slate-400 font-normal">/mo</span></div>
-                  <p className="text-[11px] text-slate-400">Complete autonomous OS for solo founders and CISOs.</p>
+                  <div className="font-bold text-white text-sm">Starter &amp; Scanner</div>
+                  <div className="text-slate-400 text-[11px] mt-0.5">Website Scanner &amp; Vendor Passport</div>
+                  <div className="text-2xl font-black font-mono text-cyan-400 my-2">$49<span className="text-xs text-slate-400 font-normal">/mo</span></div>
+                  <p className="text-[11px] text-slate-400">Continuous website compliance scanning, cookies, headers &amp; verified trust badge.</p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onClose();
-                    onNavigateToSubscriptions();
-                  }}
-                  className="mt-3 w-full py-2 rounded-lg bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-bold transition-all text-xs"
+                <a
+                  href="https://square.link/u/rrwYFGu9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 w-full py-2 rounded-lg bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-bold transition-all text-xs text-center block"
                 >
-                  Subscribe $149/mo
-                </button>
+                  Subscribe $49/mo ↗
+                </a>
               </div>
 
-              {/* Team */}
+              {/* Professional / Team */}
               <div className="p-4 rounded-xl bg-slate-950 border border-indigo-500/50 flex flex-col justify-between hover:border-indigo-400 transition-colors">
                 <div>
-                  <div className="font-bold text-white text-sm">Team Compliance</div>
-                  <div className="text-indigo-300 text-[11px] mt-0.5">Up to 5 Logins</div>
-                  <div className="text-2xl font-black font-mono text-indigo-400 my-2">$299<span className="text-xs text-slate-400 font-normal">/mo</span></div>
-                  <p className="text-[11px] text-slate-400">Cross-department hub for growing startups and managers.</p>
+                  <div className="font-bold text-white text-sm">Professional / Team</div>
+                  <div className="text-indigo-300 text-[11px] mt-0.5">Full OS + 5 Sentinels</div>
+                  <div className="text-2xl font-black font-mono text-indigo-400 my-2">$199<span className="text-xs text-slate-400 font-normal">/mo</span></div>
+                  <p className="text-[11px] text-slate-400">Complete autonomous compliance OS, policy customizer &amp; multi-user workspace.</p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onClose();
-                    onNavigateToSubscriptions();
-                  }}
-                  className="mt-3 w-full py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all text-xs shadow-md"
+                <a
+                  href="https://square.link/u/GvqwdSHx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 w-full py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all text-xs shadow-md text-center block"
                 >
-                  Subscribe $299/mo
-                </button>
+                  Subscribe $199/mo ↗
+                </a>
               </div>
 
               {/* Enterprise */}
@@ -135,50 +131,37 @@ export const ShowcasePaywallModal: React.FC<ShowcasePaywallModalProps> = ({
                 </div>
                 <div>
                   <div className="font-bold text-white text-sm">Enterprise Scale</div>
-                  <div className="text-cyan-300 text-[11px] mt-0.5">6 to 100 Users</div>
-                  <div className="text-2xl font-black font-mono text-white my-2">$999<span className="text-xs text-slate-400 font-normal">/mo</span></div>
-                  <p className="text-[11px] text-slate-300">Entire company access across Factory, HR, IT, and Finance.</p>
+                  <div className="text-cyan-300 text-[11px] mt-0.5">Company-Wide + Expert Concierge</div>
+                  <div className="text-2xl font-black font-mono text-white my-2">$499<span className="text-xs text-slate-400 font-normal">+/mo</span></div>
+                  <p className="text-[11px] text-slate-300">Full enterprise access, 1-click CPA auditor binders &amp; human compliance expert review.</p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onClose();
-                    onNavigateToSubscriptions();
-                  }}
-                  className="mt-3 w-full py-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black transition-all text-xs shadow-md"
+                <a
+                  href="https://square.link/u/bGLuAsoa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 w-full py-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black transition-all text-xs shadow-md text-center block"
                 >
-                  Subscribe $999/mo
-                </button>
+                  Subscribe $499/mo ↗
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Admin / Founder Quick-Unlock Testing Option */}
+          {/* Footer Navigation to Full Plans */}
           <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
             <div className="text-slate-400 text-center sm:text-left">
-              Already a subscribed enterprise or testing your deployment?
+              Need 100+ enterprise seats, cohort calculators, or white-label branding?
             </div>
             <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  onUnlockDemo();
-                  onClose();
-                }}
-                className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 font-mono text-xs border border-cyan-800/60 transition-colors"
-                title="Toggle active organization subscription state for demonstration"
-              >
-                🔓 Switch to Active Company Mode
-              </button>
               <button
                 type="button"
                 onClick={() => {
                   onClose();
                   onNavigateToSubscriptions();
                 }}
-                className="px-4 py-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black text-xs hover:opacity-95 transition-all shadow-sm"
+                className="px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black text-xs hover:opacity-95 transition-all shadow-sm cursor-pointer"
               >
-                View Square Portal →
+                Compare All Plans &amp; Enterprise Cohorts →
               </button>
             </div>
           </div>
